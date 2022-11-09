@@ -89,7 +89,7 @@ namespace LukasBibliothek
             }
             try
             {
-                cmd = new OleDbCommand("select AuftragsID from Auftrag where AuftragsID = AuftrZMitID", con);
+                cmd = new OleDbCommand("select AuftragsID from Auftrag where KontaktID = AuftrZMitID", con);
                 dr = cmd.ExecuteReader();
                 cBoxAID.Update();
                 cBoxAID.Items.Clear();
