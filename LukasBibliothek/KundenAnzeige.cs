@@ -105,7 +105,15 @@ namespace LukasBibliothek
                 MessageBox.Show(E5.ToString());
                 throw;
             }
-
+            try
+            {
+                con.Close();
+            }
+            catch (Exception E6)
+            {
+                MessageBox.Show(E6.ToString());
+                throw;
+            }
         }
         private void cBoxK_SelectedIndexChanged(object sender, EventArgs e)
         {

@@ -19,7 +19,7 @@ namespace Projekt_Spritzgussproduktion
         public static void configScript()
         {
             try
-            {
+            { 
                 try
                 {
                     con.ConnectionString = $"Provider=Microsoft.ACE.OLEDB.16.0;Data Source=Projekt.accdb";
@@ -36,7 +36,6 @@ namespace Projekt_Spritzgussproduktion
                 MessageBox.Show(E.ToString());
                 throw;
             }
-
         }
             public static void KVHome()
             {
