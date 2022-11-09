@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Data;
 using System.Data.OleDb;
+using System.Threading;
 using System.Windows.Forms;
+using LukasBibliothek;
+using static LukasBibliothek.KundVerwalt;
 
 
 namespace Projekt_Spritzgussproduktion
@@ -34,10 +37,14 @@ namespace Projekt_Spritzgussproduktion
                 throw;
             }
 
-            /*switch ()
-            {
-                
-            }*/
         }
+            public static void KVHome()
+            {
+                if (Enabled)
+                {
+                    new Thread(() => new HomeMenu().ShowDialog()).Start();
+                    Enabled = false;
+                }
+            }
     }
 }

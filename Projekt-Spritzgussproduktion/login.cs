@@ -31,12 +31,12 @@ namespace Projekt_Spritzgussproduktion
             {
                 try
                 { 
-                    con.ConnectionString = $"Provider=Microsoft.ACE.OLEDB.16.0;Data Source=Projekt.accdb";
+                    con.ConnectionString = $"Provider=Microsoft.ACE.OLEDB.16.0;Data Source=ProjektX.accdb";
                     con.Open();
                 }
                 catch
                 {
-                    con.ConnectionString = $"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Projekt.accdb";
+                    con.ConnectionString = $"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=ProjektX.accdb";
                     con.Open();
                 }
             }
@@ -49,7 +49,7 @@ namespace Projekt_Spritzgussproduktion
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            cmd = new OleDbCommand("select * from Mitarbeiter", con);
+            cmd = new OleDbCommand($"select * from Mitarbeiter where MitUserName='{txtUName.Text}'", con);
             dr = cmd.ExecuteReader();
             dr.Read();
             
@@ -58,7 +58,7 @@ namespace Projekt_Spritzgussproduktion
             
             if (txtUName.Text == username && txtPasswd.Text == passwd)
             {
-                Home home = new Home();
+                HomeMenu home = new HomeMenu();
                 home.Show();
                 Hide();
             }

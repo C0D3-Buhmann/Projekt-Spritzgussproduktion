@@ -42,11 +42,13 @@
             this.richTextBox4 = new System.Windows.Forms.RichTextBox();
             this.richTextBox5 = new System.Windows.Forms.RichTextBox();
             this.richTextBox6 = new System.Windows.Forms.RichTextBox();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.btnSp = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label7
             // 
-            this.label7.Location = new System.Drawing.Point(320, 297);
+            this.label7.Location = new System.Drawing.Point(217, 312);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(160, 20);
             this.label7.TabIndex = 13;
@@ -54,7 +56,7 @@
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(320, 256);
+            this.label6.Location = new System.Drawing.Point(217, 271);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(160, 20);
             this.label6.TabIndex = 12;
@@ -62,7 +64,7 @@
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(320, 215);
+            this.label5.Location = new System.Drawing.Point(217, 230);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(160, 20);
             this.label5.TabIndex = 11;
@@ -70,7 +72,7 @@
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(320, 174);
+            this.label4.Location = new System.Drawing.Point(217, 189);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(160, 20);
             this.label4.TabIndex = 10;
@@ -78,7 +80,7 @@
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(320, 133);
+            this.label3.Location = new System.Drawing.Point(217, 148);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(160, 20);
             this.label3.TabIndex = 9;
@@ -96,7 +98,7 @@
             // lblK
             // 
             this.lblK.AutoSize = true;
-            this.lblK.Location = new System.Drawing.Point(320, 99);
+            this.lblK.Location = new System.Drawing.Point(217, 114);
             this.lblK.Name = "lblK";
             this.lblK.Size = new System.Drawing.Size(55, 20);
             this.lblK.TabIndex = 16;
@@ -105,7 +107,7 @@
             // lblKIDA
             // 
             this.lblKIDA.AutoSize = true;
-            this.lblKIDA.Location = new System.Drawing.Point(122, 9);
+            this.lblKIDA.Location = new System.Drawing.Point(102, 9);
             this.lblKIDA.Name = "lblKIDA";
             this.lblKIDA.Size = new System.Drawing.Size(41, 20);
             this.lblKIDA.TabIndex = 17;
@@ -113,57 +115,80 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(482, 96);
+            this.richTextBox1.Location = new System.Drawing.Point(383, 114);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(100, 25);
+            this.richTextBox1.Size = new System.Drawing.Size(200, 25);
             this.richTextBox1.TabIndex = 18;
             this.richTextBox1.Text = "";
             // 
             // richTextBox2
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(482, 130);
+            this.richTextBox2.Location = new System.Drawing.Point(383, 148);
             this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(100, 25);
+            this.richTextBox2.Size = new System.Drawing.Size(200, 25);
             this.richTextBox2.TabIndex = 19;
             this.richTextBox2.Text = "";
             // 
             // richTextBox3
             // 
-            this.richTextBox3.Location = new System.Drawing.Point(486, 171);
+            this.richTextBox3.Location = new System.Drawing.Point(383, 189);
             this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(100, 25);
+            this.richTextBox3.Size = new System.Drawing.Size(200, 25);
             this.richTextBox3.TabIndex = 20;
             this.richTextBox3.Text = "";
             // 
             // richTextBox4
             // 
-            this.richTextBox4.Location = new System.Drawing.Point(486, 212);
+            this.richTextBox4.Location = new System.Drawing.Point(383, 230);
             this.richTextBox4.Name = "richTextBox4";
-            this.richTextBox4.Size = new System.Drawing.Size(100, 25);
+            this.richTextBox4.Size = new System.Drawing.Size(200, 25);
             this.richTextBox4.TabIndex = 21;
             this.richTextBox4.Text = "";
             // 
             // richTextBox5
             // 
-            this.richTextBox5.Location = new System.Drawing.Point(482, 253);
+            this.richTextBox5.Location = new System.Drawing.Point(383, 271);
             this.richTextBox5.Name = "richTextBox5";
-            this.richTextBox5.Size = new System.Drawing.Size(100, 25);
+            this.richTextBox5.Size = new System.Drawing.Size(200, 25);
             this.richTextBox5.TabIndex = 22;
             this.richTextBox5.Text = "";
             // 
             // richTextBox6
             // 
-            this.richTextBox6.Location = new System.Drawing.Point(482, 294);
+            this.richTextBox6.Location = new System.Drawing.Point(383, 312);
             this.richTextBox6.Name = "richTextBox6";
-            this.richTextBox6.Size = new System.Drawing.Size(100, 25);
+            this.richTextBox6.Size = new System.Drawing.Size(200, 25);
             this.richTextBox6.TabIndex = 23;
             this.richTextBox6.Text = "";
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.Red;
+            this.btnExit.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnExit.Location = new System.Drawing.Point(698, 408);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(90, 30);
+            this.btnExit.TabIndex = 24;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // btnSp
+            // 
+            this.btnSp.Location = new System.Drawing.Point(698, 12);
+            this.btnSp.Name = "btnSp";
+            this.btnSp.Size = new System.Drawing.Size(90, 30);
+            this.btnSp.TabIndex = 25;
+            this.btnSp.Text = "Speichern";
+            this.btnSp.UseVisualStyleBackColor = true;
             // 
             // KundenHinzufügen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnSp);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.richTextBox6);
             this.Controls.Add(this.richTextBox5);
             this.Controls.Add(this.richTextBox4);
@@ -180,6 +205,7 @@
             this.Controls.Add(this.label3);
             this.Name = "KundenHinzufügen";
             this.Text = "KundenHinzufügen";
+            this.Load += new System.EventHandler(this.KundenHinzufügen_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,5 +227,7 @@
         private System.Windows.Forms.RichTextBox richTextBox4;
         private System.Windows.Forms.RichTextBox richTextBox5;
         private System.Windows.Forms.RichTextBox richTextBox6;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnSp;
     }
 }

@@ -31,7 +31,6 @@
             this.lblK = new System.Windows.Forms.Label();
             this.cBoxK = new System.Windows.Forms.ComboBox();
             this.lblKID = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -47,9 +46,8 @@
             this.lblHQ = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.lblAID = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            this.cBoxKID = new System.Windows.Forms.ComboBox();
+            this.cBoxAID = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lblK
@@ -68,6 +66,7 @@
             this.cBoxK.Name = "cBoxK";
             this.cBoxK.Size = new System.Drawing.Size(160, 28);
             this.cBoxK.TabIndex = 1;
+            this.cBoxK.SelectedIndexChanged += new System.EventHandler(this.cBoxK_SelectedIndexChanged);
             // 
             // lblKID
             // 
@@ -77,13 +76,6 @@
             this.lblKID.Size = new System.Drawing.Size(85, 20);
             this.lblKID.TabIndex = 2;
             this.lblKID.Text = "Kunden ID";
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(153, 61);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(80, 26);
-            this.numericUpDown1.TabIndex = 3;
             // 
             // label3
             // 
@@ -154,18 +146,19 @@
             // 
             // btnSp
             // 
-            this.btnSp.Location = new System.Drawing.Point(698, 17);
+            this.btnSp.Location = new System.Drawing.Point(684, 17);
             this.btnSp.Name = "btnSp";
-            this.btnSp.Size = new System.Drawing.Size(90, 30);
+            this.btnSp.Size = new System.Drawing.Size(104, 30);
             this.btnSp.TabIndex = 15;
             this.btnSp.Text = "Speichern";
             this.btnSp.UseVisualStyleBackColor = true;
             // 
             // btnB
             // 
-            this.btnB.Location = new System.Drawing.Point(698, 62);
+            this.btnB.Location = new System.Drawing.Point(684, 62);
+            this.btnB.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.btnB.Name = "btnB";
-            this.btnB.Size = new System.Drawing.Size(90, 30);
+            this.btnB.Size = new System.Drawing.Size(100, 30);
             this.btnB.TabIndex = 16;
             this.btnB.Text = "Bearbeiten";
             this.btnB.UseVisualStyleBackColor = true;
@@ -174,12 +167,13 @@
             // 
             this.btnExit.BackColor = System.Drawing.Color.Red;
             this.btnExit.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnExit.Location = new System.Drawing.Point(698, 417);
+            this.btnExit.Location = new System.Drawing.Point(698, 408);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(90, 30);
             this.btnExit.TabIndex = 17;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // cBoxKK
             // 
@@ -217,19 +211,30 @@
             this.lblAID.TabIndex = 21;
             this.lblAID.Text = "Auftrags ID";
             // 
-            // numericUpDown2
+            // cBoxKID
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(153, 109);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(80, 26);
-            this.numericUpDown2.TabIndex = 22;
+            this.cBoxKID.FormattingEnabled = true;
+            this.cBoxKID.Location = new System.Drawing.Point(153, 59);
+            this.cBoxKID.Name = "cBoxKID";
+            this.cBoxKID.Size = new System.Drawing.Size(80, 28);
+            this.cBoxKID.TabIndex = 23;
+            this.cBoxKID.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // cBoxAID
+            // 
+            this.cBoxAID.FormattingEnabled = true;
+            this.cBoxAID.Location = new System.Drawing.Point(153, 101);
+            this.cBoxAID.Name = "cBoxAID";
+            this.cBoxAID.Size = new System.Drawing.Size(80, 28);
+            this.cBoxAID.TabIndex = 24;
             // 
             // KundenAnzeige
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.numericUpDown2);
+            this.Controls.Add(this.cBoxAID);
+            this.Controls.Add(this.cBoxKID);
             this.Controls.Add(this.lblAID);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lblHQ);
@@ -245,14 +250,12 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.lblKID);
             this.Controls.Add(this.cBoxK);
             this.Controls.Add(this.lblK);
             this.Name = "KundenAnzeige";
             this.Text = "KundenAnzeige";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            this.Load += new System.EventHandler(this.KundenAnzeige_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -263,7 +266,6 @@
         private System.Windows.Forms.Label lblK;
         private System.Windows.Forms.ComboBox cBoxK;
         private System.Windows.Forms.Label lblKID;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -279,6 +281,7 @@
         private System.Windows.Forms.Label lblHQ;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblAID;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.ComboBox cBoxKID;
+        private System.Windows.Forms.ComboBox cBoxAID;
     }
 }

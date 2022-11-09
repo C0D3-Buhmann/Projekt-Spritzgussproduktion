@@ -58,6 +58,18 @@
     <Compile Include="KundenHinzufügen.Designer.cs">
       <DependentUpon>KundenHinzufügen.cs</DependentUpon>
     </Compile>
+    <Compile Include="KundenKontaktAnzeige.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KundenKontaktAnzeige.Designer.cs">
+      <DependentUpon>KundenKontaktAnzeige.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KundenKontaktHinzufügen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KundenKontaktHinzufügen.Designer.cs">
+      <DependentUpon>KundenKontaktHinzufügen.cs</DependentUpon>
+    </Compile>
     <Compile Include="KundVerwalt.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +89,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="KundenHinzufügen.resx">
       <DependentUpon>KundenHinzufügen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KundenKontaktAnzeige.resx">
+      <DependentUpon>KundenKontaktAnzeige.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KundenKontaktHinzufügen.resx">
+      <DependentUpon>KundenKontaktHinzufügen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KundVerwalt.resx">
       <DependentUpon>KundVerwalt.cs</DependentUpon>
