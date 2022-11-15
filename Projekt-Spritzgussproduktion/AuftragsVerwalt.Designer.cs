@@ -31,50 +31,58 @@ namespace Projekt_Spritzgussproduktion
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupInfo = new System.Windows.Forms.GroupBox();
             this.cBSchritt = new System.Windows.Forms.ComboBox();
             this.txtProID = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.lBRoh = new System.Windows.Forms.ListBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btnProdVerw = new System.Windows.Forms.Button();
+            this.btnRohVerw = new System.Windows.Forms.Button();
+            this.lblPreis = new System.Windows.Forms.Label();
+            this.lblMenge = new System.Windows.Forms.Label();
             this.cBAutrag = new System.Windows.Forms.ComboBox();
             this.btnChange = new System.Windows.Forms.Button();
             this.nUDMenge = new System.Windows.Forms.NumericUpDown();
-            this.button10 = new System.Windows.Forms.Button();
+            this.btnAuftrBuchen = new System.Windows.Forms.Button();
             this.btnAuftrNeu = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.groupAuftrVerwalt = new System.Windows.Forms.GroupBox();
+            this.lblNewPreisXMenge = new System.Windows.Forms.Label();
+            this.lblPpStk = new System.Windows.Forms.Label();
+            this.nUDPreisN = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
+            this.nUDMengeN = new System.Windows.Forms.NumericUpDown();
             this.btnAccept = new System.Windows.Forms.Button();
             this.cBoxMitarb = new System.Windows.Forms.ComboBox();
             this.dTPCreated = new System.Windows.Forms.DateTimePicker();
             this.cBoxProd = new System.Windows.Forms.ComboBox();
             this.cBoxStatus = new System.Windows.Forms.ComboBox();
             this.cBoxKontakt = new System.Windows.Forms.ComboBox();
-            this.groupBox1.SuspendLayout();
+            this.lblAuftr = new System.Windows.Forms.Label();
+            this.groupInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nUDMenge)).BeginInit();
             this.groupAuftrVerwalt.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nUDPreisN)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nUDMengeN)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // groupInfo
             // 
-            this.groupBox1.Controls.Add(this.cBSchritt);
-            this.groupBox1.Controls.Add(this.txtProID);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.lBRoh);
-            this.groupBox1.Location = new System.Drawing.Point(249, 64);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(425, 339);
-            this.groupBox1.TabIndex = 17;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Info";
+            this.groupInfo.Controls.Add(this.cBSchritt);
+            this.groupInfo.Controls.Add(this.txtProID);
+            this.groupInfo.Controls.Add(this.textBox1);
+            this.groupInfo.Controls.Add(this.label3);
+            this.groupInfo.Controls.Add(this.textBox3);
+            this.groupInfo.Controls.Add(this.lBRoh);
+            this.groupInfo.Location = new System.Drawing.Point(249, 64);
+            this.groupInfo.Name = "groupInfo";
+            this.groupInfo.Size = new System.Drawing.Size(425, 339);
+            this.groupInfo.TabIndex = 17;
+            this.groupInfo.TabStop = false;
+            this.groupInfo.Text = "Info";
             // 
             // cBSchritt
             // 
@@ -90,7 +98,6 @@ namespace Projekt_Spritzgussproduktion
             this.txtProID.Name = "txtProID";
             this.txtProID.Size = new System.Drawing.Size(59, 20);
             this.txtProID.TabIndex = 12;
-            this.txtProID.Text = "ProID";
             this.txtProID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtProID.TextChanged += new System.EventHandler(this.txtProID_TextChanged);
             // 
@@ -100,7 +107,6 @@ namespace Projekt_Spritzgussproduktion
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(59, 20);
             this.textBox1.TabIndex = 11;
-            this.textBox1.Text = "Gesammt";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label3
@@ -109,7 +115,6 @@ namespace Projekt_Spritzgussproduktion
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(124, 31);
             this.label3.TabIndex = 10;
-            this.label3.Text = "Rohstoff\r\nVerbrauchsmenge";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBox3
@@ -118,7 +123,6 @@ namespace Projekt_Spritzgussproduktion
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(59, 20);
             this.textBox3.TabIndex = 9;
-            this.textBox3.Text = "Stk";
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lBRoh
@@ -129,48 +133,48 @@ namespace Projekt_Spritzgussproduktion
             this.lBRoh.Size = new System.Drawing.Size(218, 303);
             this.lBRoh.TabIndex = 3;
             // 
-            // button5
+            // btnProdVerw
             // 
-            this.button5.Location = new System.Drawing.Point(693, 261);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(110, 28);
-            this.button5.TabIndex = 15;
-            this.button5.Text = "Produktverwaltung";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnProdVerw.Location = new System.Drawing.Point(693, 261);
+            this.btnProdVerw.Name = "btnProdVerw";
+            this.btnProdVerw.Size = new System.Drawing.Size(110, 28);
+            this.btnProdVerw.TabIndex = 15;
+            this.btnProdVerw.Text = "Produktverwaltung";
+            this.btnProdVerw.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnRohVerw
             // 
-            this.button3.Location = new System.Drawing.Point(693, 295);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(110, 28);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "Rohstoffverwaltung";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnRohVerw.Location = new System.Drawing.Point(693, 295);
+            this.btnRohVerw.Name = "btnRohVerw";
+            this.btnRohVerw.Size = new System.Drawing.Size(110, 28);
+            this.btnRohVerw.TabIndex = 11;
+            this.btnRohVerw.Text = "Rohstoffverwaltung";
+            this.btnRohVerw.UseVisualStyleBackColor = true;
             // 
-            // label4
+            // lblPreis
             // 
-            this.label4.Location = new System.Drawing.Point(173, 12);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(70, 20);
-            this.label4.TabIndex = 25;
-            this.label4.Text = "Preis";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblPreis.Location = new System.Drawing.Point(173, 12);
+            this.lblPreis.Name = "lblPreis";
+            this.lblPreis.Size = new System.Drawing.Size(70, 20);
+            this.lblPreis.TabIndex = 25;
+            this.lblPreis.Text = "Preis";
+            this.lblPreis.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label1
+            // lblMenge
             // 
-            this.label1.Location = new System.Drawing.Point(12, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 20);
-            this.label1.TabIndex = 22;
-            this.label1.Text = "Menge";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblMenge.Location = new System.Drawing.Point(12, 38);
+            this.lblMenge.Name = "lblMenge";
+            this.lblMenge.Size = new System.Drawing.Size(70, 20);
+            this.lblMenge.TabIndex = 22;
+            this.lblMenge.Text = "Menge";
+            this.lblMenge.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cBAutrag
             // 
             this.cBAutrag.FormattingEnabled = true;
-            this.cBAutrag.Location = new System.Drawing.Point(18, 11);
+            this.cBAutrag.Location = new System.Drawing.Point(88, 11);
             this.cBAutrag.Name = "cBAutrag";
-            this.cBAutrag.Size = new System.Drawing.Size(149, 21);
+            this.cBAutrag.Size = new System.Drawing.Size(79, 21);
             this.cBAutrag.TabIndex = 20;
             this.cBAutrag.TextChanged += new System.EventHandler(this.cBAutrag_TextChanged);
             // 
@@ -191,15 +195,18 @@ namespace Projekt_Spritzgussproduktion
             this.nUDMenge.Name = "nUDMenge";
             this.nUDMenge.Size = new System.Drawing.Size(155, 20);
             this.nUDMenge.TabIndex = 27;
+            this.nUDMenge.ValueChanged += new System.EventHandler(this.nUDMenge_ValueChanged);
             // 
-            // button10
+            // btnAuftrBuchen
             // 
-            this.button10.Location = new System.Drawing.Point(693, 377);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(110, 28);
-            this.button10.TabIndex = 28;
-            this.button10.Text = "Auftrag Buchen";
-            this.button10.UseVisualStyleBackColor = true;
+            this.btnAuftrBuchen.Enabled = false;
+            this.btnAuftrBuchen.Location = new System.Drawing.Point(693, 377);
+            this.btnAuftrBuchen.Name = "btnAuftrBuchen";
+            this.btnAuftrBuchen.Size = new System.Drawing.Size(110, 28);
+            this.btnAuftrBuchen.TabIndex = 28;
+            this.btnAuftrBuchen.Text = "Auftrag Buchen";
+            this.btnAuftrBuchen.UseVisualStyleBackColor = true;
+            this.btnAuftrBuchen.Click += new System.EventHandler(this.btnAuftrBuchen_Click);
             // 
             // btnAuftrNeu
             // 
@@ -235,27 +242,78 @@ namespace Projekt_Spritzgussproduktion
             // 
             // groupAuftrVerwalt
             // 
+            this.groupAuftrVerwalt.Controls.Add(this.lblNewPreisXMenge);
+            this.groupAuftrVerwalt.Controls.Add(this.lblPpStk);
+            this.groupAuftrVerwalt.Controls.Add(this.nUDPreisN);
+            this.groupAuftrVerwalt.Controls.Add(this.label2);
+            this.groupAuftrVerwalt.Controls.Add(this.nUDMengeN);
             this.groupAuftrVerwalt.Controls.Add(this.btnAccept);
             this.groupAuftrVerwalt.Controls.Add(this.cBoxMitarb);
             this.groupAuftrVerwalt.Controls.Add(this.dTPCreated);
             this.groupAuftrVerwalt.Controls.Add(this.cBoxProd);
             this.groupAuftrVerwalt.Controls.Add(this.cBoxStatus);
             this.groupAuftrVerwalt.Controls.Add(this.cBoxKontakt);
-            this.groupAuftrVerwalt.Location = new System.Drawing.Point(14, 132);
+            this.groupAuftrVerwalt.Location = new System.Drawing.Point(12, 134);
             this.groupAuftrVerwalt.Name = "groupAuftrVerwalt";
             this.groupAuftrVerwalt.Size = new System.Drawing.Size(228, 271);
             this.groupAuftrVerwalt.TabIndex = 32;
             this.groupAuftrVerwalt.TabStop = false;
             this.groupAuftrVerwalt.Visible = false;
             // 
+            // lblNewPreisXMenge
+            // 
+            this.lblNewPreisXMenge.Location = new System.Drawing.Point(10, 179);
+            this.lblNewPreisXMenge.Name = "lblNewPreisXMenge";
+            this.lblNewPreisXMenge.Size = new System.Drawing.Size(143, 20);
+            this.lblNewPreisXMenge.TabIndex = 34;
+            this.lblNewPreisXMenge.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblPpStk
+            // 
+            this.lblPpStk.Location = new System.Drawing.Point(10, 154);
+            this.lblPpStk.Name = "lblPpStk";
+            this.lblPpStk.Size = new System.Drawing.Size(58, 20);
+            this.lblPpStk.TabIndex = 36;
+            this.lblPpStk.Text = "Preis / Stk";
+            this.lblPpStk.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // nUDPreisN
+            // 
+            this.nUDPreisN.DecimalPlaces = 2;
+            this.nUDPreisN.Location = new System.Drawing.Point(74, 154);
+            this.nUDPreisN.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
+            this.nUDPreisN.Name = "nUDPreisN";
+            this.nUDPreisN.Size = new System.Drawing.Size(80, 20);
+            this.nUDPreisN.TabIndex = 35;
+            this.nUDPreisN.ValueChanged += new System.EventHandler(this.nUDPreisN_ValueChanged);
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(10, 125);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 20);
+            this.label2.TabIndex = 34;
+            this.label2.Text = "Menge";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // nUDMengeN
+            // 
+            this.nUDMengeN.Location = new System.Drawing.Point(74, 125);
+            this.nUDMengeN.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
+            this.nUDMengeN.Name = "nUDMengeN";
+            this.nUDMengeN.Size = new System.Drawing.Size(80, 20);
+            this.nUDMengeN.TabIndex = 34;
+            this.nUDMengeN.ValueChanged += new System.EventHandler(this.nUDMengeN_ValueChanged);
+            // 
             // btnAccept
             // 
             this.btnAccept.Location = new System.Drawing.Point(160, 125);
             this.btnAccept.Name = "btnAccept";
-            this.btnAccept.Size = new System.Drawing.Size(62, 41);
+            this.btnAccept.Size = new System.Drawing.Size(62, 129);
             this.btnAccept.TabIndex = 6;
             this.btnAccept.Text = "button1";
             this.btnAccept.UseVisualStyleBackColor = true;
+            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
             // cBoxMitarb
             // 
@@ -264,7 +322,6 @@ namespace Projekt_Spritzgussproduktion
             this.cBoxMitarb.Name = "cBoxMitarb";
             this.cBoxMitarb.Size = new System.Drawing.Size(104, 21);
             this.cBoxMitarb.TabIndex = 5;
-            this.cBoxMitarb.Text = "Mitarbeiter";
             // 
             // dTPCreated
             // 
@@ -280,7 +337,6 @@ namespace Projekt_Spritzgussproduktion
             this.cBoxProd.Name = "cBoxProd";
             this.cBoxProd.Size = new System.Drawing.Size(212, 21);
             this.cBoxProd.TabIndex = 2;
-            this.cBoxProd.Text = "Produkt";
             // 
             // cBoxStatus
             // 
@@ -289,7 +345,6 @@ namespace Projekt_Spritzgussproduktion
             this.cBoxStatus.Name = "cBoxStatus";
             this.cBoxStatus.Size = new System.Drawing.Size(212, 21);
             this.cBoxStatus.TabIndex = 1;
-            this.cBoxStatus.Text = "Status";
             // 
             // cBoxKontakt
             // 
@@ -298,35 +353,55 @@ namespace Projekt_Spritzgussproduktion
             this.cBoxKontakt.Name = "cBoxKontakt";
             this.cBoxKontakt.Size = new System.Drawing.Size(104, 21);
             this.cBoxKontakt.TabIndex = 0;
-            this.cBoxKontakt.Text = "Kontakt";
+            // 
+            // lblAuftr
+            // 
+            this.lblAuftr.Location = new System.Drawing.Point(12, 11);
+            this.lblAuftr.Name = "lblAuftr";
+            this.lblAuftr.Size = new System.Drawing.Size(70, 20);
+            this.lblAuftr.TabIndex = 33;
+            this.lblAuftr.Text = "Auftrag";
+            this.lblAuftr.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // AuftragsVerwalt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(815, 450);
+            this.Controls.Add(this.lblAuftr);
             this.Controls.Add(this.groupAuftrVerwalt);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAuftrNeu);
-            this.Controls.Add(this.button10);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.btnAuftrBuchen);
+            this.Controls.Add(this.btnProdVerw);
             this.Controls.Add(this.nUDMenge);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnRohVerw);
             this.Controls.Add(this.btnChange);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblPreis);
+            this.Controls.Add(this.lblMenge);
             this.Controls.Add(this.cBAutrag);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupInfo);
+            this.Location = new System.Drawing.Point(15, 15);
             this.Name = "AuftragsVerwalt";
-            this.Text = "AuftragsVerwalt";
             this.Load += new System.EventHandler(this.AuftragsVerwalt_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupInfo.ResumeLayout(false);
+            this.groupInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nUDMenge)).EndInit();
             this.groupAuftrVerwalt.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.nUDPreisN)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nUDMengeN)).EndInit();
             this.ResumeLayout(false);
         }
+
+        public System.Windows.Forms.NumericUpDown nUDMengeN;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblPpStk;
+        public System.Windows.Forms.NumericUpDown nUDPreisN;
+        private System.Windows.Forms.Label lblNewPreisXMenge;
+
+        private System.Windows.Forms.Label lblAuftr;
 
         private System.Windows.Forms.Button btnAccept;
 
@@ -349,20 +424,20 @@ namespace Projekt_Spritzgussproduktion
 
         private System.Windows.Forms.Button btnDelete;
 
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button btnAuftrBuchen;
 
         private System.Windows.Forms.TextBox textBox1;
 
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblPreis;
+        private System.Windows.Forms.Label lblMenge;
         public System.Windows.Forms.ComboBox cBAutrag;
         private System.Windows.Forms.Button btnChange;
         public System.Windows.Forms.NumericUpDown nUDMenge;
 
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnProdVerw;
+        private System.Windows.Forms.Button btnRohVerw;
 
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupInfo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.ListBox lBRoh;
