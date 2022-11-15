@@ -20,6 +20,7 @@ namespace Projekt_Spritzgussproduktion
         private OleDbDataReader dr;
         private OleDbCommand cmd;
         public string passwd, username;
+        public int userID;
         public Form1()
         {
             InitializeComponent();
