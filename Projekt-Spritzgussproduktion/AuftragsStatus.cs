@@ -92,5 +92,10 @@ namespace Projekt_Spritzgussproduktion
             dGView.DataSource = ds;
             dGView.DataMember = "Auftrag";
         }
+
+        private void test1_Load(object sender, EventArgs e)
+        {
+            InitializeComponent();
+        }
     }
 }

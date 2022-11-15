@@ -1,48 +1,24 @@
 
-O
-MoritzBibliothek/UserVerwalt.cs,3\c\3c8c30b94fb7e54f3bea1009b76663ab6a4fcc88
-N
-MoritzBibliothek/RohVerwalt.cs,6\d\6d7eb66c7c396c51123d5199941c4718f725e04e
-O
-MoritzBibliothek/ProdVerwalt.cs,0\c\0c63b3f222875ae1cb75f980d792c93d0627f943
 W
 'LukasBibliothek/KundenKontaktAnzeige.cs,e\d\edc6852d0b1c7adcba06572b9c081a6943d02fd6
-p
-@Projekt-Spritzgussproduktion/Projekt-Spritzgussproduktion.csproj,1\e\1e99818216232ec3dc103505dfa1ede436c52e38
 X
 (MoritzBibliothek/MoritzBibliothek.csproj,3\3\339fd4acc0e559faff8eea3e6b4d6e40b3ff3025
 W
 'Projekt-Spritzgussproduktion/Program.cs,a\2\a24607939dc7d3613ff300934361580f086a9eaf
-g
-7Projekt-Spritzgussproduktion/AuftragsStatus.Designer.cs,2\b\2b7da7fcd4381959c86092b2664a5ab5f7438059
-^
-.Projekt-Spritzgussproduktion/AuftragsStatus.cs,3\9\39d2ea44ba8929422cad4a908d303d2f95601d70
 a
 1Projekt-Spritzgussproduktion/HomeMenu.Designer.cs,3\3\3379eb867bf0ef884448b1153e2a3d60a40cc3b9
 e
 5Projekt-Spritzgussproduktion/Lieferschein.Designer.cs,2\5\25dac62f15649ca6f4d8a29877728fa8c514e14d
-X
-(Projekt-Spritzgussproduktion/HomeMenu.cs,c\a\ca3fd78f6b7ca9819f077fe23196f2bf6a4a4a7c
-\
-,Projekt-Spritzgussproduktion/Lieferschein.cs,8\d\8d52881acc1ea9f78579fdb921772ec0ea4093d4
 W
 'MoritzBibliothek/MitarbVerw.Designer.cs,4\4\44858efdc85ad88bc2cec16ad466126a11f59bca
-N
-MoritzBibliothek/MitarbVerw.cs,f\7\f76b4a3e9f77dc7c76fe6929bf55e7bb2c60ff8c
 W
 'LukasBibliothek/KundVerwalt.Designer.cs,d\c\dcc524e654362e57938d3c78956b5562fb379ad6
-N
-LukasBibliothek/KundVerwalt.cs,d\0\d0a513e34120fb963b5644923ae8b54191371b0a
 Y
 )LukasBibliothek/KundenAnzeige.Designer.cs,0\1\01b298ea632a05dd07ab9176619850ef0bc38a3c
 T
 $LukasBibliothek/KundenHinzufügen.cs,9\7\97eaace22f7922e1fec68131fd89fc38846e1603
-U
-%Projekt-Spritzgussproduktion/login.cs,4\c\4c0e403e42dffe24c7ae18f2f8a6de8e8fa5bf9f
 ]
 -LukasBibliothek/KundenHinzufügen.Designer.cs,5\8\5888ee9c0d079cce194886c1bec694e0133d3ca4
-h
-8Projekt-Spritzgussproduktion/AuftragsVerwalt.Designer.cs,7\3\73b73a47879c94414578338d325913fb3957e3cc
 V
 &LukasBibliothek/LukasBibliothek.csproj,b\1\b17f5efc75281f6c48344a2b6b458e4ba2b1f5a1
 ]
@@ -63,9 +39,5 @@ Y
 )LukasBibliothek/KundenKontaktAnzeige.resx,9\e\9e551327a828d9a0d578eb8e4014332aaa49be02
 X
 (Projekt-Spritzgussproduktion-mm29942.sln,b\6\b68d8b169bc57e7fe6a453fa5afe9c2b65991ee3
-_
-/Projekt-Spritzgussproduktion/AuftragsVerwalt.cs,c\c\ccb9636d82d505304bf60bbe19c22ef39cb7dcc0
-P
- LukasBibliothek/KundenAnzeige.cs,1\1\11df857854ba1598a4ab42a2ca207e8e368c7796
 V
 &Projekt-Spritzgussproduktion/config.cs,3\f\3f378310f87ea337b493c644a9df558ccf5b63aa

@@ -49,8 +49,16 @@ namespace Projekt_Spritzgussproduktion
             this.btnAuftrNeu = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.groupAuftrVerwalt = new System.Windows.Forms.GroupBox();
+            this.btnAccept = new System.Windows.Forms.Button();
+            this.cBoxMitarb = new System.Windows.Forms.ComboBox();
+            this.dTPCreated = new System.Windows.Forms.DateTimePicker();
+            this.cBoxProd = new System.Windows.Forms.ComboBox();
+            this.cBoxStatus = new System.Windows.Forms.ComboBox();
+            this.cBoxKontakt = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nUDMenge)).BeginInit();
+            this.groupAuftrVerwalt.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -174,6 +182,7 @@ namespace Projekt_Spritzgussproduktion
             this.btnChange.TabIndex = 26;
             this.btnChange.Text = "Ändern";
             this.btnChange.UseVisualStyleBackColor = true;
+            this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
             // 
             // nUDMenge
             // 
@@ -200,6 +209,7 @@ namespace Projekt_Spritzgussproduktion
             this.btnAuftrNeu.TabIndex = 29;
             this.btnAuftrNeu.Text = "Neu Anlegen";
             this.btnAuftrNeu.UseVisualStyleBackColor = true;
+            this.btnAuftrNeu.Click += new System.EventHandler(this.btnAuftrNeu_Click);
             // 
             // btnDelete
             // 
@@ -209,6 +219,7 @@ namespace Projekt_Spritzgussproduktion
             this.btnDelete.TabIndex = 30;
             this.btnDelete.Text = "Löschen";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnExit
             // 
@@ -222,11 +233,79 @@ namespace Projekt_Spritzgussproduktion
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // groupAuftrVerwalt
+            // 
+            this.groupAuftrVerwalt.Controls.Add(this.btnAccept);
+            this.groupAuftrVerwalt.Controls.Add(this.cBoxMitarb);
+            this.groupAuftrVerwalt.Controls.Add(this.dTPCreated);
+            this.groupAuftrVerwalt.Controls.Add(this.cBoxProd);
+            this.groupAuftrVerwalt.Controls.Add(this.cBoxStatus);
+            this.groupAuftrVerwalt.Controls.Add(this.cBoxKontakt);
+            this.groupAuftrVerwalt.Location = new System.Drawing.Point(14, 132);
+            this.groupAuftrVerwalt.Name = "groupAuftrVerwalt";
+            this.groupAuftrVerwalt.Size = new System.Drawing.Size(228, 271);
+            this.groupAuftrVerwalt.TabIndex = 32;
+            this.groupAuftrVerwalt.TabStop = false;
+            this.groupAuftrVerwalt.Visible = false;
+            // 
+            // btnAccept
+            // 
+            this.btnAccept.Location = new System.Drawing.Point(160, 125);
+            this.btnAccept.Name = "btnAccept";
+            this.btnAccept.Size = new System.Drawing.Size(62, 41);
+            this.btnAccept.TabIndex = 6;
+            this.btnAccept.Text = "button1";
+            this.btnAccept.UseVisualStyleBackColor = true;
+            // 
+            // cBoxMitarb
+            // 
+            this.cBoxMitarb.FormattingEnabled = true;
+            this.cBoxMitarb.Location = new System.Drawing.Point(118, 18);
+            this.cBoxMitarb.Name = "cBoxMitarb";
+            this.cBoxMitarb.Size = new System.Drawing.Size(104, 21);
+            this.cBoxMitarb.TabIndex = 5;
+            this.cBoxMitarb.Text = "Mitarbeiter";
+            // 
+            // dTPCreated
+            // 
+            this.dTPCreated.Location = new System.Drawing.Point(10, 72);
+            this.dTPCreated.Name = "dTPCreated";
+            this.dTPCreated.Size = new System.Drawing.Size(212, 20);
+            this.dTPCreated.TabIndex = 4;
+            // 
+            // cBoxProd
+            // 
+            this.cBoxProd.FormattingEnabled = true;
+            this.cBoxProd.Location = new System.Drawing.Point(10, 45);
+            this.cBoxProd.Name = "cBoxProd";
+            this.cBoxProd.Size = new System.Drawing.Size(212, 21);
+            this.cBoxProd.TabIndex = 2;
+            this.cBoxProd.Text = "Produkt";
+            // 
+            // cBoxStatus
+            // 
+            this.cBoxStatus.FormattingEnabled = true;
+            this.cBoxStatus.Location = new System.Drawing.Point(10, 98);
+            this.cBoxStatus.Name = "cBoxStatus";
+            this.cBoxStatus.Size = new System.Drawing.Size(212, 21);
+            this.cBoxStatus.TabIndex = 1;
+            this.cBoxStatus.Text = "Status";
+            // 
+            // cBoxKontakt
+            // 
+            this.cBoxKontakt.FormattingEnabled = true;
+            this.cBoxKontakt.Location = new System.Drawing.Point(9, 18);
+            this.cBoxKontakt.Name = "cBoxKontakt";
+            this.cBoxKontakt.Size = new System.Drawing.Size(104, 21);
+            this.cBoxKontakt.TabIndex = 0;
+            this.cBoxKontakt.Text = "Kontakt";
+            // 
             // AuftragsVerwalt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(815, 450);
+            this.Controls.Add(this.groupAuftrVerwalt);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAuftrNeu);
@@ -245,8 +324,20 @@ namespace Projekt_Spritzgussproduktion
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nUDMenge)).EndInit();
+            this.groupAuftrVerwalt.ResumeLayout(false);
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Button btnAccept;
+
+        private System.Windows.Forms.DateTimePicker dTPCreated;
+        private System.Windows.Forms.ComboBox cBoxMitarb;
+
+        private System.Windows.Forms.ComboBox cBoxKontakt;
+        private System.Windows.Forms.ComboBox cBoxStatus;
+        private System.Windows.Forms.ComboBox cBoxProd;
+
+        private System.Windows.Forms.GroupBox groupAuftrVerwalt;
 
         public System.Windows.Forms.ComboBox cBSchritt;
 
