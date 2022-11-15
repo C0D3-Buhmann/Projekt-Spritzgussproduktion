@@ -373,7 +373,7 @@ namespace Projekt_Spritzgussproduktion
                 
                 cmd = new OleDbCommand($"select * from Produkt", con);
                 dr = cmd.ExecuteReader();
-                cBoxProd.Update();
+                //clBProd.Update();
                 cBoxProd.Text = "";
                 cBoxProd.Items.Clear();
                 while (dr.Read())
