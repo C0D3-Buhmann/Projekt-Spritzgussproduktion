@@ -13,7 +13,7 @@ namespace Projekt_Spritzgussproduktion
         private OleDbConnection con = new OleDbConnection();
         private OleDbDataReader dr;
         private OleDbCommand cmd;
-        private bool create, edit, delete;
+        private bool create, edit, delete, finished;
         public AuftragsVerwalt()
         {
             InitializeComponent();
@@ -65,6 +65,12 @@ namespace Projekt_Spritzgussproduktion
             cBSchritt.EndUpdate();
             
             fillRoh();
+
+            if (cBoxKontakt.Text != "" && cBoxMitarb.Text != "" && cBoxProd.Text != "" && cBoxStatus.Text != "" &&
+                nUDMengeN.Value <= 0 && nUDPreisN.Value <= 0)
+            {
+                btnAccept.Enabled = true;
+            }
         }
 
 
@@ -285,7 +291,33 @@ namespace Projekt_Spritzgussproduktion
             catch
             {
             }
-            
+
+            try
+            {
+                cmd = new OleDbCommand(
+                    $"select * from FirmenKontakt, Auftrag, Kunden where AuftragsID={cBAutrag.Text} and AuftrKontaktID=KontaktID and KundID=KKundID",
+                    con);
+                dr = cmd.ExecuteReader();
+                dr.Read();
+                var ActCompany = dr["KKInfo"].ToString();
+
+                cmd = new OleDbCommand($"select * from Kunden", con);
+                dr = cmd.ExecuteReader();
+                cBoxKontakt.Update();
+                cBoxKontakt.Text = "";
+                cBoxKontakt.Items.Clear();
+                while (dr.Read())
+                {
+                    cBoxKontakt.Items.Add(dr["KKInfo"].ToString());
+                }
+
+                cBoxKontakt.SelectedText = ActCompany;
+                cBoxKontakt.EndUpdate();
+            }
+            catch
+            {
+                
+            }
             try
             {
                 cmd = new OleDbCommand($"select * from FirmenKontakt, Auftrag where AuftragsID={cBAutrag.Text} and AuftrKontaktID=KontaktID", con);
@@ -415,6 +447,8 @@ namespace Projekt_Spritzgussproduktion
         {
             btnAuftrBuchen.Enabled = true;
             groupAuftrVerwalt.Enabled = false;
+            finished = true;
+            btnExit.Text = "Abbruch";
         }
 
         private void btnAuftrBuchen_Click(object sender, EventArgs e)
@@ -437,7 +471,7 @@ namespace Projekt_Spritzgussproduktion
             }
             
             
-            btnAuftrBuchen.Enabled = false;
+            btnAuftrBuchen.Enabled = true;
             btnDelete.Visible = true;
             btnAuftrNeu.Visible = true;
             btnChange.Visible = true;
@@ -455,8 +489,15 @@ namespace Projekt_Spritzgussproduktion
             
             btnRohVerw.Visible = true;
             btnProdVerw.Visible = true;
-            
-            btnExit.Text = "Abbruch";
+            finished = false;
+        }
+
+        private void AuftragsVerwalt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if ((e.KeyCode == Keys.Enter) && finished)
+            {
+                btnAuftrBuchen_Click(this, new EventArgs());
+            }
         }
     }
 }
