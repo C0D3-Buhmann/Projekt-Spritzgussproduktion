@@ -1,24 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.OleDb;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LukasBibliothek
 {
     public partial class KundenAnzeige : Form
     {
-        DataSet ds = new DataSet();
+        private DataSet ds = new DataSet();
         public OleDbDataAdapter DataAdapt;
         private OleDbConnection con = new OleDbConnection();
         private OleDbDataReader dr;
         private OleDbCommand cmd;
+
         public KundenAnzeige()
         {
             InitializeComponent();
@@ -58,9 +52,9 @@ namespace LukasBibliothek
                 throw;
             }
         }
+
         private void Kundenverbindung(object sender, EventArgs e)
         {
-
             try
             {
                 cmd = new OleDbCommand("select KundID from Kunden", con);
@@ -73,7 +67,6 @@ namespace LukasBibliothek
                 }
                 cBoxKID.SelectedIndex = 0;
                 cBoxKID.EndUpdate();
-
             }
             catch (Exception E4)
             {
@@ -92,7 +85,6 @@ namespace LukasBibliothek
                 }
                 cBoxK.SelectedIndex = 0;
                 cBoxK.EndUpdate();
-
             }
             catch (Exception E3)
             {
@@ -134,7 +126,6 @@ namespace LukasBibliothek
                         lblST.Text = dr["KundSupTel"].ToString();
                         lblSF.Text = dr["KundFSupTel"].ToString();
                         lblSE.Text = dr["KundSupEmail"].ToString();
-
                     }
                 }
                 catch (Exception E7)
@@ -161,16 +152,13 @@ namespace LukasBibliothek
                     MessageBox.Show(E9.ToString());
                     throw;
                 }
-
-
-
             }
             catch (Exception E6)
             {
                 MessageBox.Show(E6.ToString());
                 throw;
             }
-            /*try
+            try
             {
                 con.Close();
             }
@@ -178,16 +166,12 @@ namespace LukasBibliothek
             {
                 MessageBox.Show(E8.ToString());
                 throw;
-            }*/
+            }
         }
+
         private void cBoxK_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
-
-
-
-
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -199,9 +183,7 @@ namespace LukasBibliothek
             {
                 MessageBox.Show(ex.Message);
                 throw;
-
             }
         }
-
     }
 }
