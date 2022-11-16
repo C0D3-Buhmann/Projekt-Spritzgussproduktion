@@ -22,6 +22,7 @@ namespace LukasBibliothek
         public KundenAnzeige()
         {
             InitializeComponent();
+            DoubleBuffered = true;
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -191,6 +192,98 @@ namespace LukasBibliothek
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+            try
+            {
+                try
+                {
+                    cmd = new OleDbCommand($"select AuftragsID from Auftrag where {cBoxKID.Text}=AuftrZMitID", con);
+                    dr = cmd.ExecuteReader();
+                    cBoxAID.Update();
+                    cBoxAID.Items.Clear();
+                    while (dr.Read())
+                    {
+                        cBoxAID.Items.Add(dr["AuftragsID"].ToString());
+                    }
+                    cBoxAID.SelectedIndex = 0;
+                    cBoxAID.EndUpdate();
+                }
+                catch (Exception E5)
+                {
+                    MessageBox.Show(E5.ToString());
+                    throw;
+                }
+                try
+                {
+                    cmd = new OleDbCommand($"select * from Kunden where {cBoxKID.Text}=KundID", con);
+                    dr = cmd.ExecuteReader();
+                    cBoxK.Update();
+                    cBoxK.Items.Clear();
+                    while (dr.Read())
+                    {
+                        cBoxK.Items.Add(dr["KundFName"].ToString());
+                    }
+                    cBoxK.SelectedIndex = 0;
+                    cBoxK.EndUpdate();
+
+                }
+                catch (Exception E3)
+                {
+                    MessageBox.Show(E3.ToString());
+                    throw;
+                }
+                try
+                {
+                    cmd = new OleDbCommand($"select * from Kunden where {cBoxKID.Text}=KundID", con);
+                    dr = cmd.ExecuteReader();
+                    lblHQ.Update();
+                    lblST.Update();
+                    lblSF.Update();
+                    lblSE.Update();
+                    while (dr.Read())
+                    {
+                        lblHQ.Text = dr["KundHQOrt"].ToString();
+                        //cBoxKK.Items.Add(dr["HQ"].ToString());
+                        lblST.Text = dr["KundSupTel"].ToString();
+                        lblSF.Text = dr["KundFSupTel"].ToString();
+                        lblSE.Text = dr["KundSupEmail"].ToString();
+
+                    }
+                }
+                catch (Exception E7)
+                {
+                    MessageBox.Show(E7.ToString());
+                    throw;
+                }
+
+                try
+                {
+                    cmd = new OleDbCommand($"select KKInfo from FirmenKontakt where {cBoxKID.Text}=KKundID", con);
+                    dr = cmd.ExecuteReader();
+                    cBoxKK.Update();
+                    cBoxKK.Items.Clear();
+                    while (dr.Read())
+                    {
+                        cBoxKK.Items.Add(dr["KKInfo"].ToString());
+                    }
+                    cBoxKK.SelectedIndex = 0;
+                    cBoxKK.EndUpdate();
+                }
+                catch (Exception E9)
+                {
+                    MessageBox.Show(E9.ToString());
+                    throw;
+                }
+
+
+
+            }
+            catch (Exception E6)
+            {
+                MessageBox.Show(E6.ToString());
+                throw;
+            }
+            /*
             try
             {
                 Kundenverbindung(sender, e);
@@ -200,7 +293,7 @@ namespace LukasBibliothek
                 MessageBox.Show(ex.Message);
                 throw;
 
-            }
+            }*/
         }
 
     }

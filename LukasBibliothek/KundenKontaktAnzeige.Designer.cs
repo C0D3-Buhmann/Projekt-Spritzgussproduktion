@@ -31,9 +31,7 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.btnB = new System.Windows.Forms.Button();
             this.btnSp = new System.Windows.Forms.Button();
-            this.nudKuID = new System.Windows.Forms.NumericUpDown();
             this.lblK = new System.Windows.Forms.Label();
-            this.nudKoID = new System.Windows.Forms.NumericUpDown();
             this.lblKKID = new System.Windows.Forms.Label();
             this.cBoxK = new System.Windows.Forms.ComboBox();
             this.lblKk = new System.Windows.Forms.Label();
@@ -47,11 +45,10 @@
             this.lblKoE = new System.Windows.Forms.Label();
             this.lblAI = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
-            this.nubAID = new System.Windows.Forms.NumericUpDown();
             this.lblAID = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.nudKuID)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudKoID)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nubAID)).BeginInit();
+            this.cBoxKKID = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btnExit
@@ -84,13 +81,6 @@
             this.btnSp.Text = "Speichern";
             this.btnSp.UseVisualStyleBackColor = true;
             // 
-            // nudKuID
-            // 
-            this.nudKuID.Location = new System.Drawing.Point(156, 110);
-            this.nudKuID.Name = "nudKuID";
-            this.nudKuID.Size = new System.Drawing.Size(80, 26);
-            this.nudKuID.TabIndex = 28;
-            // 
             // lblK
             // 
             this.lblK.AutoSize = true;
@@ -99,13 +89,6 @@
             this.lblK.Size = new System.Drawing.Size(85, 20);
             this.lblK.TabIndex = 27;
             this.lblK.Text = "Kunden ID";
-            // 
-            // nudKoID
-            // 
-            this.nudKoID.Location = new System.Drawing.Point(156, 60);
-            this.nudKoID.Name = "nudKoID";
-            this.nudKoID.Size = new System.Drawing.Size(80, 26);
-            this.nudKoID.TabIndex = 26;
             // 
             // lblKKID
             // 
@@ -119,9 +102,9 @@
             // cBoxK
             // 
             this.cBoxK.FormattingEnabled = true;
-            this.cBoxK.Location = new System.Drawing.Point(156, 19);
+            this.cBoxK.Location = new System.Drawing.Point(112, 12);
             this.cBoxK.Name = "cBoxK";
-            this.cBoxK.Size = new System.Drawing.Size(160, 28);
+            this.cBoxK.Size = new System.Drawing.Size(150, 28);
             this.cBoxK.TabIndex = 24;
             // 
             // lblKk
@@ -213,13 +196,6 @@
             this.textBox7.Size = new System.Drawing.Size(100, 26);
             this.textBox7.TabIndex = 42;
             // 
-            // nubAID
-            // 
-            this.nubAID.Location = new System.Drawing.Point(156, 170);
-            this.nubAID.Name = "nubAID";
-            this.nubAID.Size = new System.Drawing.Size(80, 26);
-            this.nubAID.TabIndex = 44;
-            // 
             // lblAID
             // 
             this.lblAID.AutoSize = true;
@@ -229,12 +205,38 @@
             this.lblAID.TabIndex = 43;
             this.lblAID.Text = "Auftrags ID";
             // 
+            // cBoxKKID
+            // 
+            this.cBoxKKID.FormattingEnabled = true;
+            this.cBoxKKID.Location = new System.Drawing.Point(112, 58);
+            this.cBoxKKID.Name = "cBoxKKID";
+            this.cBoxKKID.Size = new System.Drawing.Size(92, 28);
+            this.cBoxKKID.TabIndex = 44;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(112, 113);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(92, 28);
+            this.comboBox2.TabIndex = 45;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(112, 173);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(92, 28);
+            this.comboBox3.TabIndex = 46;
+            // 
             // KundenKontaktAnzeige
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.nubAID);
+            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.cBoxKKID);
             this.Controls.Add(this.lblAID);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.lblAI);
@@ -246,9 +248,7 @@
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.nudKuID);
             this.Controls.Add(this.lblK);
-            this.Controls.Add(this.nudKoID);
             this.Controls.Add(this.lblKKID);
             this.Controls.Add(this.cBoxK);
             this.Controls.Add(this.lblKk);
@@ -257,9 +257,7 @@
             this.Controls.Add(this.btnSp);
             this.Name = "KundenKontaktAnzeige";
             this.Text = "KundenKontaktAnzeige";
-            ((System.ComponentModel.ISupportInitialize)(this.nudKuID)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudKoID)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nubAID)).EndInit();
+            this.Load += new System.EventHandler(this.KundenKontaktAnzeige_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -270,9 +268,7 @@
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnB;
         private System.Windows.Forms.Button btnSp;
-        private System.Windows.Forms.NumericUpDown nudKuID;
         private System.Windows.Forms.Label lblK;
-        private System.Windows.Forms.NumericUpDown nudKoID;
         private System.Windows.Forms.Label lblKKID;
         private System.Windows.Forms.ComboBox cBoxK;
         private System.Windows.Forms.Label lblKk;
@@ -286,7 +282,9 @@
         private System.Windows.Forms.Label lblKoE;
         private System.Windows.Forms.Label lblAI;
         private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.NumericUpDown nubAID;
         private System.Windows.Forms.Label lblAID;
+        private System.Windows.Forms.ComboBox cBoxKKID;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox3;
     }
 }
