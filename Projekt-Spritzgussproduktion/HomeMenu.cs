@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.OleDb;
 using System.Windows.Forms;
 using LukasBibliothek;
 using MoritzBibliothek;
@@ -7,6 +8,8 @@ namespace Projekt_Spritzgussproduktion
 {
     public partial class HomeMenu : Form
     {
+        
+        private OleDbConnection con = new OleDbConnection();
         public HomeMenu()
         {
             InitializeComponent();
@@ -74,6 +77,7 @@ namespace Projekt_Spritzgussproduktion
         private void btnExit_Click(object sender, EventArgs e)
         {
             Close();
+            con.Close();
         }
 
         private void btnLieferscheine_Click(object sender, EventArgs e)

@@ -1,7 +1,9 @@
 ﻿using System;
+using System.CodeDom;
 using System.Data;
 using System.Data.OleDb;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Windows.Forms;
 
 namespace Projekt_Spritzgussproduktion
@@ -14,6 +16,7 @@ namespace Projekt_Spritzgussproduktion
         private OleDbDataReader dr;
         private OleDbCommand cmd;
         private bool create, edit, delete, finished;
+        private int id = 0;
         public AuftragsVerwalt()
         {
             InitializeComponent();
@@ -27,12 +30,12 @@ namespace Projekt_Spritzgussproduktion
                 try
                 { 
                     con.ConnectionString = $"Provider=Microsoft.ACE.OLEDB.16.0;Data Source=ProjektX.accdb";
-                    con.Open();
+                    ConCheck();
                 }
                 catch
                 {
                     con.ConnectionString = $"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=ProjektX.accdb";
-                    con.Open();
+                    ConCheck();
                 }
             }
             catch (Exception E)
@@ -72,6 +75,14 @@ namespace Projekt_Spritzgussproduktion
                 btnAccept.Enabled = true;
             }
         }
+        
+        public void ConCheck()
+        {
+            if (con.State == ConnectionState.Closed)
+            {
+                con.Open();
+            }
+        }
 
 
         private void cBAutrag_TextChanged(object sender, EventArgs e)
@@ -85,6 +96,7 @@ namespace Projekt_Spritzgussproduktion
             if (btnExit.Text == "Exit")
             {
                 Close();
+                con.Close();
             }
             else if (btnExit.Text == "Abbruch")
             {
@@ -106,6 +118,7 @@ namespace Projekt_Spritzgussproduktion
             
                 btnRohVerw.Visible = true;
                 btnProdVerw.Visible = true;
+                cBAutrag.Enabled = true;
             
                 btnExit.Text = "Exit";
             }
@@ -153,6 +166,7 @@ namespace Projekt_Spritzgussproduktion
         {
             create = true;
             btnAccept.Text = "Create";
+            btnExit.Text = "Abbruch";
             groupAuftrVerwalt.Visible = true;
             groupInfo.Visible = false;
             btnDelete.Visible = false;
@@ -161,6 +175,8 @@ namespace Projekt_Spritzgussproduktion
             nUDMenge.Visible = false;
             lblMenge.Visible = false;
             lblPreis.Visible = false;
+            cBAutrag.Enabled = false;
+            cBoxStatus.Enabled = false;
 
             try
             {
@@ -242,6 +258,7 @@ namespace Projekt_Spritzgussproduktion
         {
             edit = true;
             btnAccept.Text = "Change";
+            btnExit.Text = "Abbruch";
             groupAuftrVerwalt.Visible = true;
             groupInfo.Visible = false;
             btnDelete.Visible = false;
@@ -252,6 +269,7 @@ namespace Projekt_Spritzgussproduktion
             lblPreis.Visible = false;
             btnRohVerw.Visible = false;
             btnProdVerw.Visible = false;
+            
             
             change();
         }
@@ -276,7 +294,7 @@ namespace Projekt_Spritzgussproduktion
         private void change()
         {
             
-            cmd = new OleDbCommand($"select * from  Auftrag, Preisliste where PAuftrID=AuftragsID and AuftragsID={cBAutrag.Text}", con);
+            /*cmd = new OleDbCommand($"select * from  Auftrag, Preisliste where PAuftrID=AuftragsID and AuftragsID={cBAutrag.Text}", con);
             dr = cmd.ExecuteReader();
             dr.Read();
 
@@ -290,7 +308,7 @@ namespace Projekt_Spritzgussproduktion
             }
             catch
             {
-            }
+            }*/
 
             try
             {
@@ -373,16 +391,23 @@ namespace Projekt_Spritzgussproduktion
                 
                 cmd = new OleDbCommand($"select * from Produkt", con);
                 dr = cmd.ExecuteReader();
-                //clBProd.Update();
-                cBoxProd.Text = "";
-                cBoxProd.Items.Clear();
+                clBProd.Update();
+                clBProd.Items.Clear();
                 while (dr.Read())
                 {
-                    cBoxProd.Items.Add(dr["ProName"].ToString());
+                    clBProd.Items.Add(dr["ProName"].ToString());
                 }
-
-                cBoxProd.SelectedText = ActualProduct;
-                cBoxProd.EndUpdate();
+                clBProd.EndUpdate();
+                var c = clBProd.Items.ToString().ToString();
+                
+                /*cBoxProd.Update();
+                cBoxProd.Text = "";
+                cBoxProd.Items.Clear();
+                foreach (var a in c)
+                {
+                    cBoxProd.Items.Add(a);
+                }
+                cBoxProd.EndUpdate();*/
             }
             catch
             {
@@ -425,8 +450,7 @@ namespace Projekt_Spritzgussproduktion
 
         private void nUDMenge_ValueChanged(object sender, EventArgs e)
         {
-            var PAuftrID = cBAutrag.Text;
-            cmd = new OleDbCommand($"select * from  Auftrag, Preisliste where PAuftrID={Convert.ToInt32(PAuftrID)}", con);
+            cmd = new OleDbCommand($"select * from  Auftrag, Preisliste where PAuftrID=AuftragsID and AuftragsID={cBAutrag.Text}", con);
             dr = cmd.ExecuteReader();
             dr.Read();
             
@@ -436,11 +460,13 @@ namespace Projekt_Spritzgussproduktion
         private void nUDMengeN_ValueChanged(object sender, EventArgs e)
         {
             lblNewPreisXMenge.Text = (Convert.ToDecimal(nUDPreisN.Value) * Convert.ToDecimal(nUDMengeN.Value)).ToString();
+            btnSavePM.Enabled = true;
         }
 
         private void nUDPreisN_ValueChanged(object sender, EventArgs e)
         {
             lblNewPreisXMenge.Text = (Convert.ToDecimal(nUDPreisN.Value) * Convert.ToDecimal(nUDMengeN.Value)).ToString();
+            btnSavePM.Enabled = true;
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
@@ -453,9 +479,24 @@ namespace Projekt_Spritzgussproduktion
 
         private void btnAuftrBuchen_Click(object sender, EventArgs e)
         {
+            
+            
+                
             if (create)
             {
-                
+                try
+                {
+                    foreach (string a in clBProd.Items)
+                    {
+                        insertDB();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                    throw;
+                }
+                cBoxStatus.Enabled = true;
             }
             else if (edit)
             {
@@ -489,6 +530,7 @@ namespace Projekt_Spritzgussproduktion
             
             btnRohVerw.Visible = true;
             btnProdVerw.Visible = true;
+            cBAutrag.Enabled = true;
             finished = false;
         }
 
@@ -497,6 +539,411 @@ namespace Projekt_Spritzgussproduktion
             if ((e.KeyCode == Keys.Enter) && finished)
             {
                 btnAuftrBuchen_Click(this, new EventArgs());
+            }
+        }
+
+        /*private void clBProd_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                cBoxProd.Update();
+                cBoxProd.Items.Clear();
+                foreach (var i in clBProd.CheckedItems)
+                {
+                    cBoxProd.Items.Add(i.ToString());
+                }
+                cBoxProd.SelectedIndex = 0;
+                cBoxProd.EndUpdate();
+            }
+            catch
+            {
+            } 
+        }*/
+        
+        private void cBoxProd_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                cmd = new OleDbCommand(
+                    $"select * from Produkt where ProName='{cBoxProd.Text}'",
+                    con);
+                dr = cmd.ExecuteReader();
+                dr.Read();
+                id = Convert.ToInt32(dr["ProID"].ToString());
+            }
+            catch
+            {
+                
+            }
+            pupd();
+        }
+
+        /*private void clBProd_SelectedValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                cBoxProd.Update();
+                cBoxProd.Items.Clear();
+                foreach (var i in clBProd.CheckedItems)
+                {
+                    cBoxProd.Items.Add(i.ToString());
+                }
+                cBoxProd.SelectedIndex = 0;
+                cBoxProd.EndUpdate();
+            }
+            catch
+            {
+            }
+        }*/
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            nUDMengeN.Enabled = true;
+            nUDPreisN.Enabled = true;
+            cBoxProd.Enabled = true;
+            btnEdit.Enabled = true;
+            clBProd.Enabled = false;
+            btnConfirm.Enabled = false;
+            
+            try
+            {
+                cmd = new OleDbCommand(
+                    $"select * from Produkt where ProName='{cBoxProd.Text}'",
+                    con);
+                dr = cmd.ExecuteReader();
+                dr.Read();
+                id = Convert.ToInt32(dr["ProID"].ToString());
+            }
+            catch
+            {
+                
+            }
+            
+            try
+            {
+                cBoxProd.Update();
+                cBoxProd.Items.Clear();
+                foreach (var i in clBProd.CheckedItems)
+                {
+                    cBoxProd.Items.Add(i.ToString());
+                }
+                cBoxProd.SelectedIndex = 0;
+                cBoxProd.EndUpdate();
+            }
+            catch
+            {
+            }
+            pupd();
+        }
+
+        private void pupd()
+        {
+            cmd = new OleDbCommand($"select Menge, ProdPreisStk from  Auftrag, Preisliste, Produkt where (ProID={id} and PProID=ProID) or ProID={id}", con);            
+            dr = cmd.ExecuteReader();
+            dr.Read();
+            
+            try
+            {
+                nUDMengeN.Update();
+                nUDMengeN.Value = Convert.ToDecimal(dr["Menge"].ToString());
+            }
+            catch
+            {
+            }
+
+            try
+            {
+                nUDPreisN.Update();
+                nUDPreisN.Value = Convert.ToDecimal(dr["ProdPreisStk"].ToString());
+            }
+            catch
+            {
+                
+            }
+            lblNewPreisXMenge.Text = (Convert.ToDecimal(nUDPreisN.Value) * Convert.ToDecimal(nUDMengeN.Value)).ToString();
+        }
+
+        private void cBoxKontakt_TextChanged(object sender, EventArgs e)
+        {
+            cmd = new OleDbCommand($"select * from  Kunden, FirmenKontakt where KundID=KKundID and KKundID={cBoxKontakt.Text}", con);            
+            dr = cmd.ExecuteReader();
+            cBoxCompany.Update();
+            cBoxCompany.Items.Clear();
+            while (dr.Read())
+            {
+                cBoxCompany.Items.Add(dr["KundFName"].ToString());
+            }
+            cBoxCompany.SelectedIndex = 0;
+            cBoxCompany.EndUpdate();
+            
+            cmd = new OleDbCommand($"select * from FirmenKontakt where KontaktID={cBoxKontakt.Text}", con);
+            dr = cmd.ExecuteReader();
+            dr.Read();
+            txtEmail.Text = dr["KontaktEmail"].ToString();
+            txtInfo.Text = dr["KKInfo"].ToString();
+            txtTel.Text = dr["KontaktTel"].ToString();
+            txtFax.Text = dr["KontaktFTel"].ToString();
+            txtLocation.Text = dr["KontaktRechnAdr"].ToString();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            nUDMengeN.Enabled = false;
+            nUDPreisN.Enabled = false;
+            cBoxProd.Enabled = false;
+            btnEdit.Enabled = false;
+            clBProd.Enabled = true;
+            btnConfirm.Enabled = true;
+        }
+
+        private void btnSavePM_Click(object sender, EventArgs e)
+        {
+            if (create)
+            {
+                
+            }
+            else if (edit)
+            {
+                
+            }
+        }
+
+        private void insertDB()
+        {
+            int Mitarbeiter, Status, ProID, CountProID, CountAuftrID;
+            decimal PreisValue = 0, menge = 0;
+            
+            try
+            {
+                /*cmd = new OleDbCommand($"Select MitUUID from Mitarbeiter where MitName='{cBoxMitarb.Text}'", con);
+                cmd.ExecuteReader();
+                dr.Read();*/
+                Mitarbeiter = cBoxMitarb.SelectedIndex;
+                Mitarbeiter++;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                throw;
+            }
+
+            try
+            {
+                /*cmd = new OleDbCommand($"Select * from Status where Statusmeldung='{cBoxStatus.Text}'", con);
+                cmd.ExecuteReader();
+                dr.Read();*/
+                Status = cBoxStatus.SelectedIndex;
+                Status++;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                throw;
+            }
+
+            try
+            {
+                /*cmd = new OleDbCommand($"select * from Preisliste, Produkt where ProName='{cBoxProd.Text}' and ProID=PProID", con);
+                cmd.ExecuteReader();
+                dr.Read();*/
+                ProID = cBoxProd.SelectedIndex;
+                ProID++;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                throw;
+            }
+            
+           
+            try //insert Auftrag
+            {
+                Mitarbeiter = cBoxMitarb.SelectedIndex;
+                Status = cBoxStatus.SelectedIndex;
+                cmd = new OleDbCommand("select * from Produkt where ProID=(select max(ProID) from Produkt)", con);
+                ProID = cBoxProd.SelectedIndex;
+                Mitarbeiter++;
+                Status++;
+                ProID++;
+                CountAuftrID = 0;
+                menge = 0;
+                    
+                cmd = new OleDbCommand($"insert into Auftrag (AuftragsDat, AuftrZMitID, Auftragsstatus, AuftrKontaktID) values ('{DateTime.Now}', {Mitarbeiter}, 2, {cBoxKontakt.Text})", con);
+                cmd.ExecuteNonQuery();
+                dr.Read();
+
+
+                MessageBox.Show(cBoxProd.Items.Count.ToString());
+                for (var a = 0; a >= cBoxProd.Items.Count; a++)
+                {
+                    try
+                    {
+                        MessageBox.Show(a.ToString());
+                        cBoxProd.SelectedIndex = a;
+                        cmd = new OleDbCommand(
+                            $"select * from Produkt, Preisliste where ProName='{cBoxProd.Text}' and PProID=ProID", con);
+                        cmd.ExecuteReader();
+                        while (dr.Read())
+                        {
+                            ProID = Convert.ToInt32(dr["ProID"].ToString());
+                        }
+
+                        foreach (int at in cBAutrag.Items)
+                        {
+                            var tmp = 0;
+                            if (tmp < at)
+                            {
+                                tmp = at;
+                                CountAuftrID = at;
+                            }
+                        }
+
+
+                        cmd = new OleDbCommand(
+                            $"select Menge, ProdPreisStk from  Auftrag, Preisliste, Produkt where (ProID={ProID} and PProID=ProID) or ProID={ProID}",
+                            con);
+                        dr = cmd.ExecuteReader();
+                        dr.Read();
+
+                        try
+                        {
+                            menge = Convert.ToDecimal(dr["Menge"].ToString());
+                        }
+                        catch
+                        {
+                        }
+
+                        try
+                        {
+                            PreisValue = Convert.ToDecimal(dr["ProdPreisStk"].ToString());
+                        }
+                        catch
+                        {
+                        }
+
+                        MessageBox.Show(
+                            ("ID: " + CountAuftrID + "\n" +
+                             "Mitarbeiter: " + Mitarbeiter + "\n" +
+                             "Status: " + Status + "\n" +
+                             "ProID: " + ProID + "\n" +
+                             "PreisValue: " + PreisValue + "\n" +
+                             "Menge: " + menge + "\n").ToString()
+                        );
+                        cmd = new OleDbCommand(
+                            $"insert into Preisliste (PProID, PAuftrID, PreisProStk, PreisInklMenge, Menge) values ({ProID}, {CountAuftrID}, '{PreisValue}', '{PreisValue * menge}', {menge})",
+                            con);
+                        cmd.ExecuteNonQuery();
+                        dr.Read();
+                        btnSavePM.Enabled = false;
+                    }
+                    catch
+                    {
+                        MessageBox.Show(a.ToString());
+                        cBoxProd.SelectedIndex = a;
+                        cmd = new OleDbCommand(
+                            $"select * from Produkt, Preisliste where ProName='{cBoxProd.Text}' and PProID=ProID", con);
+                        cmd.ExecuteReader();
+                        while (dr.Read())
+                        {
+                            ProID = Convert.ToInt32(dr["ProID"].ToString());
+                        }
+
+                        foreach (int at in cBAutrag.Items)
+                        {
+                            var tmp = 0;
+                            if (tmp < at)
+                            {
+                                tmp = at;
+                                CountAuftrID = at;
+                            }
+                        }
+
+
+                        cmd = new OleDbCommand(
+                            $"select Menge, ProdPreisStk from  Auftrag, Preisliste, Produkt where (ProID={ProID} and PProID=ProID) or ProID={ProID}",
+                            con);
+                        dr = cmd.ExecuteReader();
+                        dr.Read();
+
+                        try
+                        {
+                            menge = Convert.ToDecimal(dr["Menge"].ToString());
+                        }
+                        catch
+                        {
+                        }
+
+                        try
+                        {
+                            PreisValue = Convert.ToDecimal(dr["ProdPreisStk"].ToString());
+                        }
+                        catch
+                        {
+                        }
+
+                        MessageBox.Show(
+                            ("ID: " + CountAuftrID + "\n" +
+                             "Mitarbeiter: " + Mitarbeiter + "\n" +
+                             "Status: " + Status + "\n" +
+                             "ProID: " + ProID + "\n" +
+                             "PreisValue: " + PreisValue + "\n" +
+                             "Menge: " + menge + "\n").ToString()
+                        );
+                        cmd = new OleDbCommand(
+                            $"insert into Preisliste (PProID, PAuftrID, PreisProStk, PreisInklMenge, Menge) values ({ProID}, {CountAuftrID}, '{PreisValue}', '{PreisValue * menge}', {menge})",
+                            con);
+                        cmd.ExecuteNonQuery();
+                        dr.Read();
+                        btnSavePM.Enabled = false;
+                    }
+                }
+            }
+            catch 
+            {
+            }
+            
+            try //insert Preisliste
+            {
+                
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                throw;
+            }
+        }
+
+        private void txtReload_Click(object sender, EventArgs e)
+        {
+            cmd = new OleDbCommand("select * from Auftrag", con);
+            dr = cmd.ExecuteReader();
+
+            cBAutrag.Update();
+            cBAutrag.Items.Clear();
+            while (dr.Read())
+            {
+                cBAutrag.Items.Add(dr["AuftragsID".ToString()]);
+            }
+            cBAutrag.SelectedIndex = 0;
+            cBAutrag.EndUpdate();
+            load();
+            cmd = new OleDbCommand("select * from ProduktSchritte, SchrittRohVerb, Preisliste, Produkt, Auftrag where AuftragsID=PAuftrID and PProID=ProID and ProID=SProID and SchrittID=RSchrittID", con);
+            dr = cmd.ExecuteReader();
+            cBSchritt.Update();
+            cBSchritt.Items.Clear();
+            while (dr.Read())
+            {
+                cBSchritt.Items.Add(dr["SchrittID".ToString()]);
+            }
+            cBSchritt.SelectedIndex = 0;
+            cBSchritt.EndUpdate();
+            
+            fillRoh();
+
+            if (cBoxKontakt.Text != "" && cBoxMitarb.Text != "" && cBoxProd.Text != "" && cBoxStatus.Text != "" &&
+                nUDMengeN.Value <= 0 && nUDPreisN.Value <= 0)
+            {
+                btnAccept.Enabled = true;
             }
         }
     }

@@ -47,15 +47,23 @@ namespace Projekt_Spritzgussproduktion
                 throw;
             }
         }
-
+        public void ConCheck()
+        {
+            if (con.State == ConnectionState.Closed)
+            {
+                con.Open();
+            }
+        }
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            ConCheck();
             cmd = new OleDbCommand($"select * from Mitarbeiter where MitUserName='{txtUName.Text}'", con);
             dr = cmd.ExecuteReader();
             dr.Read();
             
             username = dr["MitUserName"].ToString();
             passwd = dr["MitUserPasswd"].ToString();
+            userID = Convert.ToInt32(dr["MitUUID"].ToString());
             
             if (txtUName.Text == username && txtPasswd.Text == passwd)
             {
@@ -68,10 +76,14 @@ namespace Projekt_Spritzgussproduktion
                 MessageBox.Show("A user with this username and/ or password didn't exist!");
                 txtPasswd.Text = "";
             }
+            con.Close();
         }
+
+        
 
         private void txtPasswd_KeyDown(object sender, KeyEventArgs e)
         {
+            ConCheck();
             if (e.KeyCode == Keys.Enter)
             {
                 btnLogin_Click(this, new EventArgs());
