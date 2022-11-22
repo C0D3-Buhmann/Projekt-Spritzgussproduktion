@@ -97,5 +97,23 @@ namespace Projekt_Spritzgussproduktion
         {
             InitializeComponent();
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            DataAdapt = new OleDbDataAdapter($"Select * from FirmenKontakt", con);
+            ds.Clear();
+            DataAdapt.Fill(ds, "FirmenKontakt");
+            dGView.DataSource = ds;
+            dGView.DataMember = "FirmenKontakt";
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            DataAdapt = new OleDbDataAdapter($"Select * from Kunden", con);
+            ds.Clear();
+            DataAdapt.Fill(ds, "Kunden");
+            dGView.DataSource = ds;
+            dGView.DataMember = "Kunden";
+        }
     }
 }

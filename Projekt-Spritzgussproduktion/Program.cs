@@ -27,20 +27,7 @@ namespace Projekt_Spritzgussproduktion
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
-            
-            /*new Thread(() => 
-            {
-                Thread.CurrentThread.IsBackground = true;
-                do
-                {
-                    if (Enabled) 
-                    {
-                        new Thread(() => new HomeMenu().ShowDialog()).Start();
-                        Enabled = false;
-                    }
-                }
-                while (!Enabled) ;
-            }).Start();*/
+            //Application.Run(new AuftragsVerwalt());
         }
     }
 }
