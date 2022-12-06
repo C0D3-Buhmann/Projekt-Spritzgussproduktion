@@ -48,6 +48,7 @@ namespace LukasBibliothek
             catch (Exception E)
             {
                 MessageBox.Show(E.Message);
+                throw;
             }
             try
             {
@@ -71,7 +72,7 @@ namespace LukasBibliothek
             }
             try
             {
-                cmd = new OleDbCommand($"select * FROM KundenKontakt where {cBoxKKID}=KontaktID", con);
+                cmd = new OleDbCommand($"select * FROM FirmenKontakt where {cBoxKKID.Text}= KontaktID", con);
                 dr = cmd.ExecuteReader();
                 cBoxK.Update();
                 cBoxK.Items.Clear();
@@ -83,8 +84,19 @@ namespace LukasBibliothek
             catch (Exception E2)
             {
                 MessageBox.Show(E2.Message);
-                
+                throw;
             }
+
+            try
+            {
+
+            }
+            catch (Exception E3)
+            {
+                MessageBox.Show(E3.Message);
+                throw;
+            }
+
 
 
         }
