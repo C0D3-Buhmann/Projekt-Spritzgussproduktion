@@ -72,7 +72,7 @@ namespace LukasBibliothek
             }
             try
             {
-                cmd = new OleDbCommand($"select * FROM FirmenKontakt where {cBoxKKID.Text}= KontaktID", con);
+                cmd = new OleDbCommand($"select * FROM FirmenKontakt where {cBoxKKID.Text} = KontaktID", con);
                 dr = cmd.ExecuteReader();
                 cBoxK.Update();
                 cBoxK.Items.Clear();
@@ -80,6 +80,8 @@ namespace LukasBibliothek
                 {
                     cBoxK.Items.Add(dr["KKInfo"].ToString());
                 }
+                cBoxKKID.SelectedIndex = 0;
+                cBoxKKID.EndUpdate();
             }
             catch (Exception E2)
             {
@@ -89,16 +91,22 @@ namespace LukasBibliothek
 
             try
             {
-
+                cmd = new OleDbCommand($"Select * From Kunden, FirmenKontakt where {cBoxKKID.Text} = KontaktID and KundID =KKundID ", con);
+                dr = cmd.ExecuteReader();
+                comboBox2.Update();
+                comboBox2.Items.Clear();
+                while (dr.Read())
+                {
+                    comboBox2.Items.Add(dr["KundID"].ToString());
+                }
+                comboBox2.SelectedIndex = 0;
+                comboBox2.EndUpdate();
             }
             catch (Exception E3)
             {
                 MessageBox.Show(E3.Message);
                 throw;
             }
-
-
-
         }
     }
 }
