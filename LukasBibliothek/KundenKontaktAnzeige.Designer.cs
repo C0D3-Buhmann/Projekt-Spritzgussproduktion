@@ -49,6 +49,8 @@
             this.cBoxKKID = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.lblKKRA = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnExit
@@ -106,6 +108,7 @@
             this.cBoxK.Name = "cBoxK";
             this.cBoxK.Size = new System.Drawing.Size(150, 28);
             this.cBoxK.TabIndex = 24;
+            this.cBoxK.SelectedIndexChanged += new System.EventHandler(this.cBoxK_SelectedIndexChanged);
             // 
             // lblKk
             // 
@@ -120,28 +123,28 @@
             // 
             this.textBox2.Location = new System.Drawing.Point(428, 103);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 26);
+            this.textBox2.Size = new System.Drawing.Size(220, 26);
             this.textBox2.TabIndex = 30;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(428, 145);
+            this.textBox4.Location = new System.Drawing.Point(428, 186);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 26);
+            this.textBox4.Size = new System.Drawing.Size(220, 26);
             this.textBox4.TabIndex = 32;
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(428, 185);
+            this.textBox5.Location = new System.Drawing.Point(428, 226);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 26);
+            this.textBox5.Size = new System.Drawing.Size(220, 26);
             this.textBox5.TabIndex = 33;
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(428, 225);
+            this.textBox6.Location = new System.Drawing.Point(428, 266);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 26);
+            this.textBox6.Size = new System.Drawing.Size(220, 26);
             this.textBox6.TabIndex = 34;
             // 
             // lblInfo
@@ -156,7 +159,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(273, 151);
+            this.label4.Location = new System.Drawing.Point(273, 192);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(93, 20);
             this.label4.TabIndex = 38;
@@ -165,7 +168,7 @@
             // lbl
             // 
             this.lbl.AutoSize = true;
-            this.lbl.Location = new System.Drawing.Point(273, 191);
+            this.lbl.Location = new System.Drawing.Point(273, 232);
             this.lbl.Name = "lbl";
             this.lbl.Size = new System.Drawing.Size(94, 20);
             this.lbl.TabIndex = 39;
@@ -174,7 +177,7 @@
             // lblKoE
             // 
             this.lblKoE.AutoSize = true;
-            this.lblKoE.Location = new System.Drawing.Point(273, 231);
+            this.lblKoE.Location = new System.Drawing.Point(273, 272);
             this.lblKoE.Name = "lblKoE";
             this.lblKoE.Size = new System.Drawing.Size(112, 20);
             this.lblKoE.TabIndex = 40;
@@ -183,7 +186,7 @@
             // lblAI
             // 
             this.lblAI.AutoSize = true;
-            this.lblAI.Location = new System.Drawing.Point(273, 271);
+            this.lblAI.Location = new System.Drawing.Point(273, 312);
             this.lblAI.Name = "lblAI";
             this.lblAI.Size = new System.Drawing.Size(149, 20);
             this.lblAI.TabIndex = 41;
@@ -191,9 +194,9 @@
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(428, 265);
+            this.textBox7.Location = new System.Drawing.Point(428, 306);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 26);
+            this.textBox7.Size = new System.Drawing.Size(220, 26);
             this.textBox7.TabIndex = 42;
             // 
             // lblAID
@@ -229,11 +232,29 @@
             this.comboBox3.Size = new System.Drawing.Size(92, 28);
             this.comboBox3.TabIndex = 46;
             // 
+            // lblKKRA
+            // 
+            this.lblKKRA.AutoSize = true;
+            this.lblKKRA.Location = new System.Drawing.Point(273, 149);
+            this.lblKKRA.Name = "lblKKRA";
+            this.lblKKRA.Size = new System.Drawing.Size(143, 20);
+            this.lblKKRA.TabIndex = 48;
+            this.lblKKRA.Text = "Kontakt R.Adresse";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(428, 143);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(220, 26);
+            this.textBox1.TabIndex = 47;
+            // 
             // KundenKontaktAnzeige
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblKKRA);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.cBoxKKID);
@@ -286,5 +307,7 @@
         private System.Windows.Forms.ComboBox cBoxKKID;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Label lblKKRA;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
