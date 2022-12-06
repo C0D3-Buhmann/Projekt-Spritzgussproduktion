@@ -51,24 +51,42 @@ namespace LukasBibliothek
             }
             try
             {
-                cmd = new OleDbCommand("select * FROM KundenKontakt", con);
+                cmd = new OleDbCommand("select * FROM FirmenKontakt", con);
                 dr = cmd.ExecuteReader();
                 cBoxKKID.Update();
                 cBoxKKID.Items.Clear();
                 while (dr.Read())
                 {
-                    cBoxKKID.Items.Add(dr["KKID"].ToString());
+                    cBoxKKID.Items.Add(dr["KontaktID"].ToString());
+
+
                 }
-
-
-
-
+                cBoxKKID.SelectedIndex = 0;
+                cBoxKKID.EndUpdate();
             }
             catch (Exception E1)
             {
                 MessageBox.Show(E1.Message);
                 throw;
             }
+            try
+            {
+                cmd = new OleDbCommand($"select * FROM KundenKontakt where {cBoxKKID}=KontaktID", con);
+                dr = cmd.ExecuteReader();
+                cBoxK.Update();
+                cBoxK.Items.Clear();
+                while (dr.Read())
+                {
+                    cBoxK.Items.Add(dr["KKInfo"].ToString());
+                }
+            }
+            catch (Exception E2)
+            {
+                MessageBox.Show(E2.Message);
+                throw;
+            }
+
+
         }
     }
 }
