@@ -83,7 +83,7 @@ namespace LukasBibliothek
             catch (Exception E2)
             {
                 MessageBox.Show(E2.Message);
-                throw;
+                
             }
 
 
