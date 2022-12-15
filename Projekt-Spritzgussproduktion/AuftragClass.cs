@@ -33,7 +33,7 @@ namespace Projekt_Spritzgussproduktion
         public bool EditAuftr { get; set; }
         public bool DelAufr { get; set; }
         public bool CheckAuftr { get; set; }
-        public Form1 login = new Form1();
+        public login login = new login();
 
         AuftragC()
         {

@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'DatabaseWatch|AnyCPU' ">
+    <OutputPath>bin\DatabaseWatch\</OutputPath>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,11 +49,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mitarbeiter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Mitarbeiter.Designer.cs">
+      <DependentUpon>Mitarbeiter.cs</DependentUpon>
+    </Compile>
     <Compile Include="MitarbVerw.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MitarbVerw.Designer.cs">
       <DependentUpon>MitarbVerw.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Produkt.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Produkt.Designer.cs">
+      <DependentUpon>Produkt.cs</DependentUpon>
     </Compile>
     <Compile Include="ProdVerwalt.cs">
       <SubType>Form</SubType>
@@ -72,8 +87,14 @@
     <Compile Include="UserVerwalt.Designer.cs">
       <DependentUpon>UserVerwalt.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Mitarbeiter.resx">
+      <DependentUpon>Mitarbeiter.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MitarbVerw.resx">
       <DependentUpon>MitarbVerw.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Produkt.resx">
+      <DependentUpon>Produkt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProdVerwalt.resx">
       <DependentUpon>ProdVerwalt.cs</DependentUpon>

@@ -48,6 +48,7 @@ namespace MoritzBibliothek
             this.cBoxUser.Name = "cBoxUser";
             this.cBoxUser.Size = new System.Drawing.Size(123, 21);
             this.cBoxUser.TabIndex = 0;
+            this.cBoxUser.TextChanged += new System.EventHandler(this.cBoxUser_TextChanged);
             // 
             // btnCreate
             // 
