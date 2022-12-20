@@ -190,5 +190,10 @@ namespace LukasBibliothek
 
             // con.Close();
         }
+
+        private void cBoxKKID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

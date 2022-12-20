@@ -215,6 +215,7 @@
             this.cBoxKKID.Name = "cBoxKKID";
             this.cBoxKKID.Size = new System.Drawing.Size(92, 28);
             this.cBoxKKID.TabIndex = 44;
+            this.cBoxKKID.SelectedIndexChanged += new System.EventHandler(this.cBoxKKID_SelectedIndexChanged);
             // 
             // comboBox2
             // 
