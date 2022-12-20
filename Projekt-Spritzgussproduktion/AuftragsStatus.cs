@@ -98,16 +98,7 @@ namespace Projekt_Spritzgussproduktion
             InitializeComponent();
         }
 
-        private void button7_Click(object sender, EventArgs e)
-        {
-            DataAdapt = new OleDbDataAdapter($"Select * from FirmenKontakt", con);
-            ds.Clear();
-            DataAdapt.Fill(ds, "FirmenKontakt");
-            dGView.DataSource = ds;
-            dGView.DataMember = "FirmenKontakt";
-        }
-
-        private void button8_Click(object sender, EventArgs e)
+        private void button12_Click(object sender, EventArgs e)
         {
             DataAdapt = new OleDbDataAdapter($"Select * from Kunden", con);
             ds.Clear();
@@ -115,5 +106,69 @@ namespace Projekt_Spritzgussproduktion
             dGView.DataSource = ds;
             dGView.DataMember = "Kunden";
         }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            DataAdapt = new OleDbDataAdapter($"Select * from FirmenKontakt", con);
+            ds.Clear();
+            DataAdapt.Fill(ds, "FirmenKontakt");
+            dGView.DataSource = ds;
+            dGView.DataMember = "FirmenKontakt";
+        }
+        
+        private void button10_Click(object sender, EventArgs e)
+        {
+            DataAdapt = new OleDbDataAdapter($"Select * from Kunden, FirmenKontakt where KundID=KKundID", con);
+            ds.Clear();
+            DataAdapt.Fill(ds, "FirmenKontakt&Kunden");
+            dGView.DataSource = ds;
+            dGView.DataMember = "FirmenKontakt&Kunden";
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            DataAdapt = new OleDbDataAdapter($"Select * from Mitarbeiter", con);
+            ds.Clear();
+            DataAdapt.Fill(ds, "Mitarbeiter");
+            dGView.DataSource = ds;
+            dGView.DataMember = "Mitarbeiter";
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            DataAdapt = new OleDbDataAdapter($"Select * from Mitarbeiter, MitAbteilung, MitPosID", con);
+            ds.Clear();
+            DataAdapt.Fill(ds, "MitarbeiterAP");
+            dGView.DataSource = ds;
+            dGView.DataMember = "MitarbeiterAP";
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            DataAdapt = new OleDbDataAdapter($"Select * from MitAbteilung", con);
+            ds.Clear();
+            DataAdapt.Fill(ds, "Abteilung");
+            dGView.DataSource = ds;
+            dGView.DataMember = "Abteilung";
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            DataAdapt = new OleDbDataAdapter($"Select * from MitPosID", con);
+            ds.Clear();
+            DataAdapt.Fill(ds, "Position");
+            dGView.DataSource = ds;
+            dGView.DataMember = "Position";
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            DataAdapt = new OleDbDataAdapter($"Select * from RohstoffVerbrauch", con);
+            ds.Clear();
+            DataAdapt.Fill(ds, "RohstoffVerbrauch");
+            dGView.DataSource = ds;
+            dGView.DataMember = "RohstoffVerbrauch";
+        }
+        
     }
 }

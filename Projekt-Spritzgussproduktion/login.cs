@@ -8,11 +8,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static Projekt_Spritzgussproduktion.configuration;
 
 namespace Projekt_Spritzgussproduktion
 {
-    public partial class Form1 : Form
+    public partial class login : Form
     { 
         DataSet ds = new DataSet();
         public OleDbDataAdapter DataAdapt;
@@ -20,8 +19,9 @@ namespace Projekt_Spritzgussproduktion
         private OleDbDataReader dr;
         private OleDbCommand cmd;
         public string passwd, username;
-        public int userID;
-        public Form1()
+        public int userID, AbtID, PosID;
+        
+        public login()
         {
             InitializeComponent();
         }
@@ -64,7 +64,9 @@ namespace Projekt_Spritzgussproduktion
             username = dr["MitUserName"].ToString();
             passwd = dr["MitUserPasswd"].ToString();
             userID = Convert.ToInt32(dr["MitUUID"].ToString());
-            
+            AbtID = Convert.ToInt32(dr["MitAbtID"].ToString());
+            PosID = Convert.ToInt32(dr["MitPosID"].ToString());
+
             if (txtUName.Text == username && txtPasswd.Text == passwd)
             {
                 HomeMenu home = new HomeMenu();
@@ -76,6 +78,9 @@ namespace Projekt_Spritzgussproduktion
                 MessageBox.Show("A user with this username and/ or password didn't exist!");
                 txtPasswd.Text = "";
             }
+
+            Mitarbeiter mitarb = new Mitarbeiter();
+            mitarb.SetupLogin(this, new EventArgs());
             con.Close();
         }
 

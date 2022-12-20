@@ -32,7 +32,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'DatabaseWatch|AnyCPU' ">
+    <OutputPath>bin\DatabaseWatch\</OutputPath>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Projekt_Spritzgussproduktion">
+      <HintPath>bin\Debug\Projekt_Spritzgussproduktion.exe</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -53,6 +59,10 @@
       <DependentUpon>admintools.cs</DependentUpon>
     </Compile>
     <Compile Include="AuftragClass.cs" />
+    <Compile Include="AuftragserstellungsTool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AuftragserstellungsTool.Designer.cs" />
     <Compile Include="AuftragsStatus.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,12 +73,39 @@
     <Compile Include="AuftragsVerwalt.Designer.cs">
       <DependentUpon>AuftragsVerwalt.cs</DependentUpon>
     </Compile>
+    <Compile Include="AufträgeÜbersicht.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AufträgeÜbersicht.Designer.cs">
+      <DependentUpon>AufträgeÜbersicht.cs</DependentUpon>
+    </Compile>
+    <Compile Include="create.cs" />
+    <Compile Include="KlassenRechte\Abteilung.cs" />
+    <Compile Include="KlassenRechte\Configure.cs" />
+    <Compile Include="KlassenRechte\Mitarbeiter.cs" />
+    <Compile Include="KlassenRechte\Position.cs" />
+    <Compile Include="KlassenRechte\Prozess.cs" />
+    <Compile Include="KlassenRechte\ProzesseFenster.cs" />
+    <Compile Include="KlassenRechte\Rechte.cs" />
+    <Compile Include="KlassenRechte\Rechteverwaltung.cs" />
     <Compile Include="config.cs" />
     <Compile Include="HomeMenu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="HomeMenu.Designer.cs">
       <DependentUpon>HomeMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KundenControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="KundenControl.Designer.cs">
+      <DependentUpon>KundenControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KundenEffizenz.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="KundenEffizenz.Designer.cs">
+      <DependentUpon>KundenEffizenz.cs</DependentUpon>
     </Compile>
     <Compile Include="Lieferschein.cs">
       <SubType>Form</SubType>
@@ -82,14 +119,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AuftragserstellungsTool.resx" />
     <EmbeddedResource Include="AuftragsStatus.resx">
       <DependentUpon>AuftragsStatus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AuftragsVerwalt.resx">
       <DependentUpon>AuftragsVerwalt.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AufträgeÜbersicht.resx">
+      <DependentUpon>AufträgeÜbersicht.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HomeMenu.resx">
       <DependentUpon>HomeMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KundenControl.resx">
+      <DependentUpon>KundenControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KundenEffizenz.resx">
+      <DependentUpon>KundenEffizenz.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
