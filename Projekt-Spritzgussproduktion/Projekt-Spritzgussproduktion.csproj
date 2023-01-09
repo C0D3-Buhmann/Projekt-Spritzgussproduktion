@@ -126,6 +126,9 @@
     <EmbeddedResource Include="HomeMenu.resx">
       <DependentUpon>HomeMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Lieferschein.resx">
+      <DependentUpon>Lieferschein.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>

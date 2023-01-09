@@ -8,5 +8,17 @@ namespace Projekt_Spritzgussproduktion
         {
             InitializeComponent();
         }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // Lieferschein
+            // 
+            this.ClientSize = new System.Drawing.Size(870, 531);
+            this.Name = "Lieferschein";
+            this.ResumeLayout(false);
+
+        }
     }
 }
