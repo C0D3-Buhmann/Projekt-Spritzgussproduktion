@@ -1,0 +1,7 @@
+
+`csharpsquid:S2486"CHandle the exception or explain in a comment why it can be ignored.(ŠŸÖ®
+`csharpsquid:S2486*"CHandle the exception or explain in a comment why it can be ignored.(ŠŸÖ®
+¢csharpsquid:S1186;"yAdd a nested comment explaining why this method is empty, throw a 'NotSupportedException' or complete the implementation.(Ö”É¾øÿÿÿÿ8ÚÕ»Ù0
+csharpsquid:S1186W"yAdd a nested comment explaining why this method is empty, throw a 'NotSupportedException' or complete the implementation.(Ñš¢à8ÛÕ»Ù0
+Jcsharpsquid:S108")Either remove or fill this block of code.(ÒÌâ–øÿÿÿÿ
+Jcsharpsquid:S108+")Either remove or fill this block of code.(ÒÌâ–øÿÿÿÿ

@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{22E61DF4-98B7-42D1-9D54-BBD6D0078DF6}</ProjectGuid>
+        <OutputType>WinExe</OutputType>
+        <RootNamespace>Projekt_Spritzgussproduktion</RootNamespace>
+        <AssemblyName>Projekt_Spritzgussproduktion</AssemblyName>
+        <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+        <FileAlignment>512</FileAlignment>
+        <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+        <Deterministic>true</Deterministic>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\Debug\</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\Release\</OutputPath>
+        <DefineConstants>TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="System" />
+        <Reference Include="System.Core" />
+        <Reference Include="System.Xml.Linq" />
+        <Reference Include="System.Data.DataSetExtensions" />
+        <Reference Include="Microsoft.CSharp" />
+        <Reference Include="System.Data" />
+        <Reference Include="System.Deployment" />
+        <Reference Include="System.Drawing" />
+        <Reference Include="System.Net.Http" />
+        <Reference Include="System.Windows.Forms" />
+        <Reference Include="System.Xml" />
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="admintools.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="admintools.Designer.cs">
+          <DependentUpon>admintools.cs</DependentUpon>
+        </Compile>
+        <Compile Include="AuftragsStatus.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="AuftragsStatus.Designer.cs">
+          <DependentUpon>AuftragsStatus.cs</DependentUpon>
+        </Compile>
+        <Compile Include="AuftragsVerwalt.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="AuftragsVerwalt.Designer.cs">
+          <DependentUpon>AuftragsVerwalt.cs</DependentUpon>
+        </Compile>
+        <Compile Include="config.cs" />
+        <Compile Include="HomeMenu.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="HomeMenu.Designer.cs">
+          <DependentUpon>HomeMenu.cs</DependentUpon>
+        </Compile>
+        <Compile Include="login.cs">
+            <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="login.Designer.cs">
+            <DependentUpon>login.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Program.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs" />
+        <EmbeddedResource Include="AuftragsVerwalt.resx">
+          <DependentUpon>AuftragsVerwalt.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="HomeMenu.resx">
+          <DependentUpon>HomeMenu.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="login.resx">
+          <DependentUpon>login.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Properties\Resources.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+            <SubType>Designer</SubType>
+        </EmbeddedResource>
+        <Compile Include="Properties\Resources.Designer.cs">
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Resources.resx</DependentUpon>
+        </Compile>
+        <None Include="Properties\Settings.settings">
+            <Generator>SettingsSingleFileGenerator</Generator>
+            <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+        </None>
+        <Compile Include="Properties\Settings.Designer.cs">
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Settings.settings</DependentUpon>
+            <DesignTimeSharedInput>True</DesignTimeSharedInput>
+        </Compile>
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="App.config" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\LukasBibliothek\LukasBibliothek.csproj">
+        <Project>{b53dff8d-ed5a-4df0-b6f3-5fde097c8be9}</Project>
+        <Name>LukasBibliothek</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\MoritzBibliothek\MoritzBibliothek.csproj">
+        <Project>{0a67d2cb-88cb-4357-926d-216e0875271b}</Project>
+        <Name>MoritzBibliothek</Name>
+      </ProjectReference>
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

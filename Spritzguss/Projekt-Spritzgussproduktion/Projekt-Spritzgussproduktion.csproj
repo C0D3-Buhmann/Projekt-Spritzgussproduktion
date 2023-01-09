@@ -4,15 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B53DFF8D-ED5A-4DF0-B6F3-5FDE097C8BE9}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>LukasBibliothek</RootNamespace>
-    <AssemblyName>LukasBibliothek</AssemblyName>
+    <ProjectGuid>{22E61DF4-98B7-42D1-9D54-BBD6D0078DF6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Projekt_Spritzgussproduktion</RootNamespace>
+    <AssemblyName>Projekt_Spritzgussproduktion</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <LangVersion>11</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -37,6 +36,9 @@
     <OutputPath>bin\DatabaseWatch\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Projekt_Spritzgussproduktion">
+      <HintPath>bin\Debug\Projekt_Spritzgussproduktion.exe</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -50,58 +52,76 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="KundenAnzeige.cs">
+    <Compile Include="admintools.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KundenAnzeige.Designer.cs">
-      <DependentUpon>KundenAnzeige.cs</DependentUpon>
+    <Compile Include="admintools.Designer.cs">
+      <DependentUpon>admintools.cs</DependentUpon>
     </Compile>
-    <Compile Include="KundenHinzufügen.cs">
+    <Compile Include="AuftragClass.cs" />
+    <Compile Include="AuftragserstellungsTool.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KundenHinzufügen.Designer.cs">
-      <DependentUpon>KundenHinzufügen.cs</DependentUpon>
-    </Compile>
-    <Compile Include="KundenKontaktAnzeige.cs">
+    <Compile Include="AuftragserstellungsTool.Designer.cs" />
+    <Compile Include="AuftragsStatus.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KundenKontaktAnzeige.Designer.cs">
-      <DependentUpon>KundenKontaktAnzeige.cs</DependentUpon>
-    </Compile>
-    <Compile Include="KundenKontaktHinzufügen.cs">
+    <Compile Include="AuftragsStatus.Designer.cs" />
+    <Compile Include="AuftragsVerwalt.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KundenKontaktHinzufügen.Designer.cs">
-      <DependentUpon>KundenKontaktHinzufügen.cs</DependentUpon>
+    <Compile Include="AuftragsVerwalt.Designer.cs">
+      <DependentUpon>AuftragsVerwalt.cs</DependentUpon>
     </Compile>
-    <Compile Include="KundVerwalt.cs">
+    <Compile Include="AufträgeÜbersicht.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KundVerwalt.Designer.cs">
-      <DependentUpon>KundVerwalt.cs</DependentUpon>
+    <Compile Include="AufträgeÜbersicht.Designer.cs">
+      <DependentUpon>AufträgeÜbersicht.cs</DependentUpon>
+    </Compile>
+    <Compile Include="create.cs" />
+    <Compile Include="KlassenRechte\Abteilung.cs" />
+    <Compile Include="KlassenRechte\Configure.cs" />
+    <Compile Include="KlassenRechte\Mitarbeiter.cs" />
+    <Compile Include="KlassenRechte\Position.cs" />
+    <Compile Include="KlassenRechte\Prozess.cs" />
+    <Compile Include="KlassenRechte\ProzesseFenster.cs" />
+    <Compile Include="KlassenRechte\Rechte.cs" />
+    <Compile Include="KlassenRechte\Rechteverwaltung.cs" />
+    <Compile Include="config.cs" />
+    <Compile Include="HomeMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HomeMenu.Designer.cs">
+      <DependentUpon>HomeMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lieferschein.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lieferschein.Designer.cs" />
+    <Compile Include="login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="login.Designer.cs">
+      <DependentUpon>login.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RechnVerwalt.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RechnVerwalt.Designer.cs">
-      <DependentUpon>RechnVerwalt.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="KundenAnzeige.resx">
-      <DependentUpon>KundenAnzeige.cs</DependentUpon>
+    <EmbeddedResource Include="AuftragserstellungsTool.resx" />
+    <EmbeddedResource Include="AuftragsStatus.resx">
+      <DependentUpon>AuftragsStatus.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KundenHinzufügen.resx">
-      <DependentUpon>KundenHinzufügen.cs</DependentUpon>
+    <EmbeddedResource Include="AuftragsVerwalt.resx">
+      <DependentUpon>AuftragsVerwalt.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KundenKontaktAnzeige.resx">
-      <DependentUpon>KundenKontaktAnzeige.cs</DependentUpon>
+    <EmbeddedResource Include="AufträgeÜbersicht.resx">
+      <DependentUpon>AufträgeÜbersicht.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KundenKontaktHinzufügen.resx">
-      <DependentUpon>KundenKontaktHinzufügen.cs</DependentUpon>
+    <EmbeddedResource Include="HomeMenu.resx">
+      <DependentUpon>HomeMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KundVerwalt.resx">
-      <DependentUpon>KundVerwalt.cs</DependentUpon>
+    <EmbeddedResource Include="login.resx">
+      <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -124,6 +144,19 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LukasBibliothek\LukasBibliothek.csproj">
+      <Project>{b53dff8d-ed5a-4df0-b6f3-5fde097c8be9}</Project>
+      <Name>LukasBibliothek</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MoritzBibliothek\MoritzBibliothek.csproj">
+      <Project>{0a67d2cb-88cb-4357-926d-216e0875271b}</Project>
+      <Name>MoritzBibliothek</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\ProjektX.accdb" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

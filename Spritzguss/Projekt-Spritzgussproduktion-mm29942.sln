@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projekt-Spritzgussproduktion", "Projekt-Spritzgussproduktion\Projekt-Spritzgussproduktion.csproj", "{22E61DF4-98B7-42D1-9D54-BBD6D0078DF6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LukasBibliothek", "LukasBibliothek\LukasBibliothek.csproj", "{B53DFF8D-ED5A-4DF0-B6F3-5FDE097C8BE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoritzBibliothek", "MoritzBibliothek\MoritzBibliothek.csproj", "{0A67D2CB-88CB-4357-926D-216E0875271B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		DatabaseWatch|Any CPU = DatabaseWatch|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{22E61DF4-98B7-42D1-9D54-BBD6D0078DF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22E61DF4-98B7-42D1-9D54-BBD6D0078DF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22E61DF4-98B7-42D1-9D54-BBD6D0078DF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22E61DF4-98B7-42D1-9D54-BBD6D0078DF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22E61DF4-98B7-42D1-9D54-BBD6D0078DF6}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{22E61DF4-98B7-42D1-9D54-BBD6D0078DF6}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{22E61DF4-98B7-42D1-9D54-BBD6D0078DF6}.DatabaseWatch|Any CPU.ActiveCfg = DatabaseWatch|Any CPU
+		{22E61DF4-98B7-42D1-9D54-BBD6D0078DF6}.DatabaseWatch|Any CPU.Build.0 = DatabaseWatch|Any CPU
+		{22E61DF4-98B7-42D1-9D54-BBD6D0078DF6}.DatabaseWatch|Any CPU.Deploy.0 = DatabaseWatch|Any CPU
+		{B53DFF8D-ED5A-4DF0-B6F3-5FDE097C8BE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B53DFF8D-ED5A-4DF0-B6F3-5FDE097C8BE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B53DFF8D-ED5A-4DF0-B6F3-5FDE097C8BE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B53DFF8D-ED5A-4DF0-B6F3-5FDE097C8BE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B53DFF8D-ED5A-4DF0-B6F3-5FDE097C8BE9}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B53DFF8D-ED5A-4DF0-B6F3-5FDE097C8BE9}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{B53DFF8D-ED5A-4DF0-B6F3-5FDE097C8BE9}.DatabaseWatch|Any CPU.ActiveCfg = DatabaseWatch|Any CPU
+		{B53DFF8D-ED5A-4DF0-B6F3-5FDE097C8BE9}.DatabaseWatch|Any CPU.Build.0 = DatabaseWatch|Any CPU
+		{B53DFF8D-ED5A-4DF0-B6F3-5FDE097C8BE9}.DatabaseWatch|Any CPU.Deploy.0 = DatabaseWatch|Any CPU
+		{0A67D2CB-88CB-4357-926D-216E0875271B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A67D2CB-88CB-4357-926D-216E0875271B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A67D2CB-88CB-4357-926D-216E0875271B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A67D2CB-88CB-4357-926D-216E0875271B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A67D2CB-88CB-4357-926D-216E0875271B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{0A67D2CB-88CB-4357-926D-216E0875271B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{0A67D2CB-88CB-4357-926D-216E0875271B}.DatabaseWatch|Any CPU.ActiveCfg = DatabaseWatch|Any CPU
+		{0A67D2CB-88CB-4357-926D-216E0875271B}.DatabaseWatch|Any CPU.Build.0 = DatabaseWatch|Any CPU
+	EndGlobalSection
+EndGlobal
