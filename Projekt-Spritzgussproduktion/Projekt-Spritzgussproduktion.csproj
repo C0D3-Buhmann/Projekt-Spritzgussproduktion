@@ -101,12 +101,6 @@
     <Compile Include="KundenControl.Designer.cs">
       <DependentUpon>KundenControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="KundenEffizenz.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="KundenEffizenz.Designer.cs">
-      <DependentUpon>KundenEffizenz.cs</DependentUpon>
-    </Compile>
     <Compile Include="Lieferschein.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,12 +125,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HomeMenu.resx">
       <DependentUpon>HomeMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="KundenControl.resx">
-      <DependentUpon>KundenControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="KundenEffizenz.resx">
-      <DependentUpon>KundenEffizenz.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
